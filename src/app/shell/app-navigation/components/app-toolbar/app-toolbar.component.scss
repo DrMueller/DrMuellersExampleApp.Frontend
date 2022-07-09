@@ -1,0 +1,13 @@
+@import "src/styles.scss";
+
+.toolbar-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+}
+
+.toolbar-container-item-right {
+  margin-left: auto;
+}

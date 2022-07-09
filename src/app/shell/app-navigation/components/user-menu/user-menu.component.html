@@ -1,0 +1,30 @@
+<div class="main-container">
+  <div class="welcome-container">
+    <div class="welcome-container-item">
+      <span>
+        Welcome {{userName}}
+      </span>
+    </div>
+  </div>
+
+  <div>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </div>
+
+  <div>
+    <mat-menu #menu="matMenu">
+      <ng-container *ngIf="!(isUserAuthenticated$ | async)">
+        <button mat-menu-item (click)="logIn()">Log in</button>
+      </ng-container>
+
+      <mat-divider></mat-divider>
+
+      <ng-container *ngIf="(isUserAuthenticated$ | async)">
+        <button mat-menu-item (click)="logOut()">Log out</button>
+      </ng-container>
+    </mat-menu>
+
+  </div>
+</div>
