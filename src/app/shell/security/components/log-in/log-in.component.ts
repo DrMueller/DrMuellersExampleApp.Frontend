@@ -5,7 +5,7 @@ import { IAppState } from 'src/app/shell/app-state';
 
 import { LoginRequest } from '../../models';
 import { LogInFormBuilderService } from '../../services';
-import { LogInAction } from '../../state/actions';
+import { logIn } from '../../state2';
 
 @Component({
   selector: 'app-log-in',
@@ -20,8 +20,8 @@ export class LogInComponent implements OnInit {
     private formBuilder: LogInFormBuilderService,
     private store: Store<IAppState>) { }
 
-  public ngOnInit(): void {
-    this.formGroup = this.formBuilder.buildFormGroup();
+  public get canLogIn(): boolean {
+    return !this.formGroup.invalid && !this.isLoggingIn;
   }
 
   public logIn(): void {
@@ -29,11 +29,11 @@ export class LogInComponent implements OnInit {
       this.isLoggingIn = true;
       const request = <LoginRequest> this.formGroup.value;
 
-      this.store.dispatch(new LogInAction(request));
+      this.store.dispatch(logIn({data: request}));
     }
   }
 
-  public get canLogIn(): boolean {
-    return !this.formGroup.invalid && !this.isLoggingIn;
+  public ngOnInit(): void {
+    this.formGroup = this.formBuilder.buildFormGroup();
   }
 }

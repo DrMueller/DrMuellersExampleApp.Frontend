@@ -1,0 +1,31 @@
+name: 1.0$(rev:.r) # build numbering format
+
+variables:
+  BuildConfiguration: "Release"
+  CsProjectPath: "Sources/Application/*.csproj"
+
+jobs:
+  - job: "BuildAndPublishToNuGet"
+    displayName: "Build and publish to NuGet"
+    pool:
+      vmImage: "ubuntu-20.04"
+    steps:
+    - task: Npm@1
+      displayName: 'Install NPM Packages'
+      inputs:
+        verbose: false
+
+
+    - task: Npm@1
+      displayName: 'Lint'
+      inputs:
+        command: custom
+
+        verbose: false
+
+        customCommand: 'run ng lint'
+    - task: Npm@1
+      displayName: 'npm audit'
+      inputs:
+        command: custom
+        customCommand: 'audit --registry=https://registry.npmjs.org/'

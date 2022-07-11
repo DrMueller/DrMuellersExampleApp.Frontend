@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { getUserIsAuthenticated, getUserName } from 'src/app/shell/security/state';
-import { LogOutAction } from 'src/app/shell/security/state/actions';
+import { getUserIsAuthenticated, getUserName, logOut } from 'src/app/shell/security/state2';
 
 @Component({
   selector: 'app-user-menu',
@@ -28,8 +27,8 @@ export class UserMenuComponent implements OnInit {
   }
 
   public logOut(): void {
-    this.store.dispatch(new LogOutAction());
-    this.router.navigate(['/home/welcome']);
+    this.store.dispatch(logOut());
+    this.router.navigate(['home']);
   }
 
   public ngOnInit(): void {

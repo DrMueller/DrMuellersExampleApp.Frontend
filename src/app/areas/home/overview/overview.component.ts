@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { AppSettingsSingletonService } from 'src/app/core/app-settings/services';
 
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.sass']
 })
-export class OverviewComponent implements OnInit {
+export class OverviewComponent {
+  constructor(private appSettings: AppSettingsSingletonService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public get pictureUrl(): string {
+    return `${this.appSettings.instance.serverBaseUrl}/assets/ThumbsUp.jpg`;
   }
-
 }

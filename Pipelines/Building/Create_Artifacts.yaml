@@ -1,0 +1,85 @@
+name: 1.0$(rev:.r) # build numbering format
+
+trigger: none # will disable CI builds entirely
+
+variables:
+  BuildConfiguration: "Release"
+  PublishPath: $(Build.Repository.LocalPath)/Pipelines/Building/DockerContent # used in Dockerfile
+  CsProjectPath: "Sources/Application/*.csproj"
+
+resources:
+  pipelines:
+    - pipeline: eaf-ci-pip # Name of the pipeline resource
+      source: 01-EAF-Continuous-Integration # Name of the pipeline referenced by the pipeline resource
+      trigger:
+        branches:
+          - refs/heads/master
+jobs:
+  - job: "BuildAndCreateImages"
+    displayName: "Build and create Images"
+    pool:
+      vmImage: "ubuntu-latest"
+    steps:
+      - task: qetza.replacetokens.replacetokens-task.replacetokens@5
+        displayName: "Replace tokens in **/*.yaml"
+        inputs:
+          rootDirectory: "$(Build.SourcesDirectory)"
+          targetFiles: |
+            **/*.json
+            **/*.yaml
+          tokenPattern: rm
+          verbosity: detailed
+          keepToken: true
+      - task: Npm@1
+        displayName: 'Install NPM Packages'
+        inputs:
+          verbose: false
+      - task: Npm@1
+        displayName: 'Lint'
+        inputs:
+          command: custom
+          verbose: false
+          customCommand: 'run ng lint'
+      - task: Npm@1
+        displayName: 'Build Application for Production'
+        inputs:
+          command: custom
+          verbose: false
+          customCommand: 'run ci-build-prod'
+      - task: YodLabs.VariableTasks.SetVariable.SetVariable@0
+        displayName: "Set Variable ImageName to $(Build.Repository.Name) with toLowerCase applied"
+        inputs:
+          variableName: ImageName
+          value: "$(Build.Repository.Name)"
+          transform: toLowerCase
+      - task: YodLabs.VariableTasks.SetVariable.SetVariable@0
+        displayName: "Set Variable ImageName to $(ImageName) with replace applied"
+        inputs:
+          variableName: ImageName
+          value: "$(ImageName)"
+          transform: replace
+          searchValue: '\.'
+          newValue: "-"
+      - task: Docker@0
+        displayName: "Build Docker Image"
+        inputs:
+          buildContext: "Tra"
+          containerregistrytype: "Container Registry"
+          dockerRegistryConnection: DockerHub
+          imageName: "$(ImageName)"
+          additionalImageTags: "$(Build.BuildNumber)"
+          includeLatestTag: true
+          Dockerfile: Pipelines/Building/Dockerfile
+      - task: Docker@0
+        displayName: "Push Docker Image"
+        inputs:
+          containerregistrytype: "Container Registry"
+          dockerRegistryConnection: DockerHub
+          action: "Push an image"
+          imageName: "$(ImageName)"
+          additionalImageTags: "$(Build.BuildNumber)"
+          includeLatestTag: true
+      - task: PublishBuildArtifacts@1
+        displayName: "Publish"
+        inputs:
+          PathtoPublish: "Pipelines/Releasing"

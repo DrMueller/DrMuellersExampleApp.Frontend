@@ -28,6 +28,7 @@ export class AuthenticationService {
 
   public initializeUser$(): Observable<SecurityUser> {
     const user = this.storage.load<SecurityUser>(this._userKey);
+
     if (!user) {
       return this.createGuestUser$().pipe(tap(guestUser => this.saveUser(guestUser)));
     } else {

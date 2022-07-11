@@ -6,10 +6,4 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./entry-point.component.sass']
 })
 export class EntryPointComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

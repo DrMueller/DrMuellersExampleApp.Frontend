@@ -15,7 +15,7 @@
 
   <div>
     <mat-menu #menu="matMenu">
-      <ng-container *ngIf="!(isUserAuthenticated$ | async)">
+      <ng-container *ngIf="(isUserAuthenticated$ | async) === false">
         <button mat-menu-item (click)="logIn()">Log in</button>
       </ng-container>
 

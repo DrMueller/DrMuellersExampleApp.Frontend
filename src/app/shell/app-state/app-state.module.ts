@@ -7,11 +7,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/app/environments/environment';
 
 import { IAppState, routerFeatureKey } from '.';
-import { securityReducer } from '../security/state';
 
 const reducers: ActionReducerMap<IAppState> = {
-  router: routerReducer,
-  security: securityReducer
+  router: routerReducer
 };
 
 @NgModule({

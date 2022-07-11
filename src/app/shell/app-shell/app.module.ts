@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { SecurityModule } from '../security';
 
 export function initializeApp(appInitService: AppInitService): Function {
   return () => appInitService.initializeAppAsync();
@@ -38,7 +39,9 @@ export function initializeApp(appInitService: AppInitService): Function {
     HttpClientModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
-    RxFormsModule.forRoot()
+    RxFormsModule.forRoot(),
+    SecurityModule
+
   ],
   providers: [
     {
@@ -47,7 +50,6 @@ export function initializeApp(appInitService: AppInitService): Function {
       deps: [AppInitService],
       multi: true
     }
-
   ],
   bootstrap: [AppComponent]
 })

@@ -4,7 +4,8 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { IAppState } from '../../app-state';
-import { getUserIsAuthenticated, getUserToken } from '../state';
+
+import { getUserIsAuthenticated,getUserToken } from '../state2/security.selectors';
 
 @Injectable()
 export class BearerAuthInterceptor implements HttpInterceptor {
