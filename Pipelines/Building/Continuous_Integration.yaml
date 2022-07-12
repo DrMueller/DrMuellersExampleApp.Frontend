@@ -1,9 +1,5 @@
 name: 1.0$(rev:.r) # build numbering format
 
-variables:
-  BuildConfiguration: "Release"
-  CsProjectPath: "Sources/Application/*.csproj"
-
 jobs:
   - job: "BuildAndPublishToNuGet"
     displayName: "Build and publish to NuGet"
@@ -14,18 +10,20 @@ jobs:
       displayName: 'Install NPM Packages'
       inputs:
         verbose: false
-
-
     - task: Npm@1
       displayName: 'Lint'
       inputs:
         command: custom
-
         verbose: false
-
         customCommand: 'run ng lint'
     - task: Npm@1
       displayName: 'npm audit'
       inputs:
         command: custom
         customCommand: 'audit --registry=https://registry.npmjs.org/'
+    - task: Npm@1
+      displayName: 'Build Application for Production'
+      inputs:
+        command: custom
+        verbose: false
+        customCommand: 'run ci-build-prod'

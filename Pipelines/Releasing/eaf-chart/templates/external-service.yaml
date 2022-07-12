@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ include "eaf-chart.fullname" .}}external{{ .Release.Namespace }}
+  namespace: default
+  labels:
+    {{- include "eaf-chart.labels" . | nindent 4 }}
+spec:
+  type: ExternalName
+  externalName: {{ include "eaf-chart.fullname" .}}.{{ .Release.Namespace }}.svc.cluster.local
+  ports:
+  - port: {{ .Values.externalService.port }}
