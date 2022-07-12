@@ -1,8 +1,8 @@
 name: 1.0$(rev:.r) # build numbering format
 
 jobs:
-  - job: "BuildAndPublishToNuGet"
-    displayName: "Build and publish to NuGet"
+  - job: "ContinuousIntegration"
+    displayName: "Continuous Integration"
     pool:
       vmImage: "ubuntu-20.04"
     steps:

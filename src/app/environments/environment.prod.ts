@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  version: '__BuildVersion__'
+  version: '__Build.BuildNumber__'
 };

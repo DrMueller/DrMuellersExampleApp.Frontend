@@ -27,6 +27,7 @@ jobs:
           targetFiles: |
             **/*.json
             **/*.yaml
+            **/*.ts
           tokenPattern: rm
           verbosity: detailed
           keepToken: true

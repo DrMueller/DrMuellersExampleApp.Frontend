@@ -5,5 +5,5 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './entry-point.component.html',
   styleUrls: ['./entry-point.component.sass']
 })
-export class EntryPointComponent implements OnInit {
+export class EntryPointComponent {
 }
