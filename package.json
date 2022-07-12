@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "ci-build-prod": "ng build --output-path=dist --prod",
+    "ci-build-prod": "ng build --output-path=dist",
     "lint": "ng lint"
   },
   "private": true,
