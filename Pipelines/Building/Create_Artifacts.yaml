@@ -46,7 +46,7 @@ jobs:
         inputs:
           command: custom
           verbose: false
-          customCommand: 'run ci-build-prod'
+          customCommand: 'run ng build --output-path=$(Build.Repository.LocalPath)/Pipelines/Building/DockerContent'
       - task: YodLabs.VariableTasks.SetVariable.SetVariable@0
         displayName: "Set Variable ImageName to $(Build.Repository.Name) with toLowerCase applied"
         inputs:
