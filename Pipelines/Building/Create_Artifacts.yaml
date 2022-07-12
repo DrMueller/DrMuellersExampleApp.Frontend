@@ -18,7 +18,8 @@ jobs:
   - job: "BuildAndCreateImages"
     displayName: "Build and create Images"
     pool:
-      vmImage: "ubuntu-latest"
+      name: Default
+      # vmImage: "ubuntu-latest"
     steps:
       - task: qetza.replacetokens.replacetokens-task.replacetokens@5
         displayName: "Replace tokens in **/*.yaml"
