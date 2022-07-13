@@ -3,9 +3,8 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { AppAreaFactoryService } from '../../app-areas/services';
 import { IAppState } from '../../app-state';
-import { getUserIsAuthenticated } from '../state';
+import { getUserIsAuthenticated } from '../state/security.selectors';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,6 @@ import { getUserIsAuthenticated } from '../state';
 export class AuthorizationGuard implements CanActivate {
   constructor(
     private router: Router,
-    private areaFactory: AppAreaFactoryService,
     private store: Store<IAppState>) {
   }
 
@@ -24,13 +22,7 @@ export class AuthorizationGuard implements CanActivate {
         if (isLoggedIn) {
           return true;
         }
-
-        const area = this.areaFactory.createAreaByUrl(state.url);
-        if (!area.needsAuthentication) {
-          return true;
-        }
-
-        this.router.navigate(['/home/welcome'], { queryParams: { returnUrl: state.url } });
+        this.router.navigate(['/home'], { queryParams: { returnUrl: state.url } });
         return false;
       }));
   }

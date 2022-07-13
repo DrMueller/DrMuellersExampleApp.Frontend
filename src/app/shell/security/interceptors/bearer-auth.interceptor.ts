@@ -13,8 +13,10 @@ export class BearerAuthInterceptor implements HttpInterceptor {
   private _userToken: string = '';
 
   public constructor(store: Store<IAppState>) {
-    store.pipe(select(getUserIsAuthenticated)).subscribe(loggedIn => this._userIsLoggedIn = loggedIn);
-    store.pipe(select(getUserToken)).subscribe(token => this._userToken = token);
+    // store.pipe(select(getUserIsAuthenticated)).subscribe(loggedIn => this._userIsLoggedIn = loggedIn);
+    // store.pipe(select(getUserToken)).subscribe(token => this._userToken = token);
+    store.select(getUserToken).subscribe(token => this._userToken = token);
+    store.select(getUserIsAuthenticated).subscribe(loggedIn => this._userIsLoggedIn = loggedIn);
   }
 
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
