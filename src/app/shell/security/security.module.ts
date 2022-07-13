@@ -9,8 +9,8 @@ import { RxFormsModule } from 'src/app/shared/rx-forms';
 
 import { LogInComponent } from './components/log-in/log-in.component';
 import { BearerAuthInterceptor } from './interceptors';
-import { SecurityEffects } from './state2/security.effects';
-import { securityFeatureKey, reducer } from './state2/security.reducer';
+import { SecurityEffects } from './state/security.effects';
+import { securityFeatureKey, reducer } from './state/security.reducer';
 
 @NgModule({
   declarations: [

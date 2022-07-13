@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppSettingsSingletonService } from 'src/app/core/app-settings/services';
 
 import { IAppState } from '../../app-state';
-import { initializeUser } from '../../security/state2';
+import { initializeUser } from '../../security/state';
 
 @Injectable({
   providedIn: 'root'

@@ -5,7 +5,7 @@ import { IAppState } from 'src/app/shell/app-state';
 
 import { LoginRequest } from '../../models';
 import { LogInFormBuilderService } from '../../services';
-import { logIn } from '../../state2';
+import { logIn } from '../../state';
 
 @Component({
   selector: 'app-log-in',

@@ -1,11 +1,12 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+
 import { Observable } from 'rxjs';
 
 import { IAppState } from '../../app-state';
 
-import { getUserIsAuthenticated,getUserToken } from '../state2/security.selectors';
+import { getUserIsAuthenticated, getUserToken } from '../state/security.selectors';
 
 @Injectable()
 export class BearerAuthInterceptor implements HttpInterceptor {
@@ -13,8 +14,6 @@ export class BearerAuthInterceptor implements HttpInterceptor {
   private _userToken: string = '';
 
   public constructor(store: Store<IAppState>) {
-    // store.pipe(select(getUserIsAuthenticated)).subscribe(loggedIn => this._userIsLoggedIn = loggedIn);
-    // store.pipe(select(getUserToken)).subscribe(token => this._userToken = token);
     store.select(getUserToken).subscribe(token => this._userToken = token);
     store.select(getUserIsAuthenticated).subscribe(loggedIn => this._userIsLoggedIn = loggedIn);
   }
