@@ -3,10 +3,8 @@ FROM nginx
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
 
-
-COPY ./DockerContent /usr/share/nginx/html/ea
-
-chmod -R 755 /usr/share/nginx/html/ea
+COPY ./DockerContent /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
