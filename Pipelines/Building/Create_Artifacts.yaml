@@ -4,7 +4,7 @@ trigger: none # will disable CI builds entirely
 
 variables:
   BuildConfiguration: "Release"
-  PublishPath: $(Build.Repository.LocalPath)/Pipelines/Building/DockerContent # used in Dockerfile
+  PublishPath: $(Build.Repository.LocalPath)/Pipelines/Building/DockerContent/ # used in Dockerfile
   CsProjectPath: "Sources/Application/*.csproj"
 
 resources:
