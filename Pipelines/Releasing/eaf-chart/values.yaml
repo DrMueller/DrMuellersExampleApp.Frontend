@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: drmuellersexampleapp-frontend
+  repository: drmueller/drmuellersexampleapp-frontend
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "__Build.BuildNumber__"
