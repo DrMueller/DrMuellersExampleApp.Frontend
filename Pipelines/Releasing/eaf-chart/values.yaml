@@ -10,9 +10,9 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-namespaces:
-  development: "development"
-  production: "production"
+envVariables:
+  - name: "BACKEND_BASE_URL"
+    value: "__BackendBaseUrl__"
 
 serviceAccount:
   # Specifies whether a service account should be created
