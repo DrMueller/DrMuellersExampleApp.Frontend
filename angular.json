@@ -30,6 +30,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
+              "src/app-init",
               "src/app-settings"
             ],
             "styles": [
@@ -56,9 +57,14 @@
                 {
                   "replace": "src/app/environments/environment.ts",
                   "with": "src/app/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "src/app-settings/appsettings.json",
+                  "with": "src/app-settings/appsettings.prod.json"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "namedChunks": false
             },
             "development": {
               "buildOptimizer": false,
@@ -99,6 +105,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
+              "src/app-init",
               "src/app-settings"
             ],
             "styles": [
