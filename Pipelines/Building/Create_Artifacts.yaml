@@ -53,6 +53,11 @@ jobs:
           $settingsFile = "appsettings.prod.json"
           $settingsFilePath =  $settingsPath + "\" + $settingsFile
 
+          Write-Host "settingsPath: $(settingsPath)"
+          Write-Host "settingsFilePath: $(settingsFilePath)"
+          $environmentContent = Get-Content $settingsFilePath
+          Write-Host "content: $(environmentContent)"
+
           Remove-Item -Path "$settingsPath" -Exclude "$settingsFile" -Recurse -Force -Verbose
           Rename-Item -Path "$settingsFilePath" -NewName "appsettings.json" -Force -Verbose
         displayName: 'Update TFX Version'
