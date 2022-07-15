@@ -47,6 +47,15 @@ jobs:
           command: custom
           verbose: false
           customCommand: 'run ci-build-prod -- --output-path=$(PublishPath)'
+
+      - powershell: |
+          $settingsPath = Join-Path -Path $(PublishPath) -ChildPath "\app-settings"
+          $settingsFile = "appsettings.prod.json"
+          $settingsFilePath =  $settingsPath + "\" + $settingsFile
+
+          Remove-Item -Path "$settingsPath" -Exclude "$settingsFile" -Recurse -Force -Verbose
+          Rename-Item -Path "$settingsFilePath" -NewName "appsettings.json" -Force -Verbose
+        displayName: 'Update TFX Version'
       - task: YodLabs.VariableTasks.SetVariable.SetVariable@0
         displayName: "Set Variable ImageName to $(Build.Repository.Name) with toLowerCase applied"
         inputs:
