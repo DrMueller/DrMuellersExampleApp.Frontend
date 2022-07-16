@@ -47,20 +47,19 @@ jobs:
           command: custom
           verbose: false
           customCommand: 'run ci-build-prod -- --output-path=$(PublishPath)'
+      # - powershell: |
+      #     $settingsPath = Join-Path -Path $(PublishPath) -ChildPath "\app-settings"
+      #     $settingsFile = "appsettings.prod.json"
+      #     $settingsFilePath =  $settingsPath + "\" + $settingsFile
 
-      - powershell: |
-          $settingsPath = Join-Path -Path $(PublishPath) -ChildPath "\app-settings"
-          $settingsFile = "appsettings.prod.json"
-          $settingsFilePath =  $settingsPath + "\" + $settingsFile
+      #     Write-Host "settingsPath: $settingsPath"
+      #     Write-Host "settingsFilePath: $settingsFilePath"
+      #     $environmentContent = Get-Content $settingsFilePath
+      #     Write-Host "content: $environmentContent"
 
-          Write-Host "settingsPath: $settingsPath"
-          Write-Host "settingsFilePath: $settingsFilePath"
-          $environmentContent = Get-Content $settingsFilePath
-          Write-Host "content: $environmentContent"
-
-          Remove-Item -Path "$settingsPath" -Exclude "$settingsFile" -Recurse -Force -Verbose
-          Rename-Item -Path "$settingsFilePath" -NewName "appsettings.json" -Force -Verbose
-        displayName: 'Replace appsettings.json'
+      #     Remove-Item -Path "$settingsPath" -Exclude "$settingsFile" -Recurse -Force -Verbose
+      #     Rename-Item -Path "$settingsFilePath" -NewName "appsettings.json" -Force -Verbose
+      #   displayName: 'Replace appsettings.json'
       - task: YodLabs.VariableTasks.SetVariable.SetVariable@0
         displayName: "Set Variable ImageName to $(Build.Repository.Name) with toLowerCase applied"
         inputs:
