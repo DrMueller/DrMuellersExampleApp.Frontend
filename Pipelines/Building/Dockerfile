@@ -8,5 +8,5 @@ COPY ./DockerContent /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
-# CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/app-settings/appsettings.json > /usr/share/nginx/html/app-settings/appsettings.json && exec nginx -g 'daemon off;'"]
+# CMD ["nginx", "-g", "daemon off;"]
+CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/app-settings/appsettings.json > /usr/share/nginx/html/app-settings/appsettings.json && exec nginx -g 'daemon off;'"]
