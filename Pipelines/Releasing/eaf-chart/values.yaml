@@ -45,13 +45,6 @@ service:
 externalService:
   port: 80
 
-ingress:
-  enabled: true
-  className: ""
-  annotations:
-    kubernetes.io/ingress.class: addon-http-application-routing # Use the HTTP application routing add-on
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
