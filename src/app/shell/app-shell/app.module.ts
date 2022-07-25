@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { SecurityModule } from '../security';
-import { APP_BASE_HREF } from '@angular/common';
+// import { APP_BASE_HREF } from '@angular/common';
 
 export function initializeApp(appInitService: AppInitService): Function {
   return () => appInitService.initializeAppAsync();
@@ -45,10 +45,10 @@ export function initializeApp(appInitService: AppInitService): Function {
 
   ],
   providers: [
-    {
-      provide: APP_BASE_HREF,
-      useValue: '/ea/'
-    },
+    // {
+    //   provide: APP_BASE_HREF,
+    //   useValue: '/ea/'
+    // },
     {
       provide: APP_INITIALIZER,
       useFactory: initializeApp,

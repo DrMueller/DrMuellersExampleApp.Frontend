@@ -13,7 +13,7 @@ export class AppSettingsSingletonService {
   }
 
   public async initializeAsync(): Promise<void> {
-    const appSettings = await fetch('./ea/app-settings/appsettings.json');
+    const appSettings = await fetch('./app-settings/appsettings.json');
     const data = <AppSettings>await appSettings.json();
 
     this._appSettings = data;
