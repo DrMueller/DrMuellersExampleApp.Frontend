@@ -15,18 +15,21 @@
 <body class="mat-typography">
   <app-root></app-root>
 </body>
-<!-- <script>
+
+<script>
   (function () {
     const body = document['body'];
     const scripts = body.getElementsByTagName('script');
-    for (let i = 0; i < scripts.length; i++) {
+    const length = scripts.length;
+
+    for (let i = 0; i < length; i++) {
       const script = scripts[i];
       if (script.src == '') {
         continue;
       }
 
       var urlParts = script.src.split('/');
-      urlParts.splice(urlParts.length-1, 0, 'ea');
+      urlParts.splice(urlParts.length - 1, 0, 'ea');
       const newUrl = urlParts.join('/');
       appendScript(body, newUrl);
     }
@@ -39,6 +42,6 @@
       return scriptTag;
     }
   })();
-</script> -->
+</script>
 
 </html>
