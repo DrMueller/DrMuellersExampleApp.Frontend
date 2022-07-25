@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { SecurityModule } from '../security';
+import { APP_BASE_HREF } from '@angular/common';
 
 export function initializeApp(appInitService: AppInitService): Function {
   return () => appInitService.initializeAppAsync();
@@ -49,7 +50,10 @@ export function initializeApp(appInitService: AppInitService): Function {
       useFactory: initializeApp,
       deps: [AppInitService],
       multi: true
-    }
+    },
+    {
+      provide: APP_BASE_HREF,
+      useValue: '/ea/'}
   ],
   bootstrap: [AppComponent]
 })
