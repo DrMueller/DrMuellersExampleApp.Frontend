@@ -22,6 +22,8 @@
     const scripts = body.getElementsByTagName('script');
     const length = scripts.length;
 
+    const scriptsToRemove = [];
+
     for (let i = 0; i < length; i++) {
       const script = scripts[i];
       if (script.src == '') {
@@ -32,6 +34,12 @@
       urlParts.splice(urlParts.length - 1, 0, 'ea');
       const newUrl = urlParts.join('/');
       appendScript(body, newUrl);
+      scriptsToRemove.push(i);
+    }
+
+    for (let i = (scriptsToRemove.length - 1); i >= 0; i--) {
+      const index = scriptsToRemove[i];
+      body.removeChild(scripts[index]);
     }
 
     function appendScript(body, scriptSource) {
