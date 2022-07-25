@@ -10,6 +10,6 @@ export class OverviewComponent {
   constructor(private appSettings: AppSettingsSingletonService) { }
 
   public get pictureUrl(): string {
-    return `${this.appSettings.instance.serverBaseUrl}/assets/ThumbsUp.jpg`;
+    return `${this.appSettings.instance.serverBaseUrl}/api/assets/ThumbsUp.jpg`;
   }
 }
