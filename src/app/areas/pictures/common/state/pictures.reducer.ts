@@ -25,7 +25,6 @@ export const picturesReducers = createReducer(
   on(
     loadUserPictureSuccess,
     (state, action) => {
-      debugger;
       return {
         ...state,
         userPicture: action.userPicture

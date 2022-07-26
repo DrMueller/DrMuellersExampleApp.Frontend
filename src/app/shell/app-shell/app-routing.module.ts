@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LogInComponent } from '../security/components/log-in/log-in.component';
-import { AuthorizationGuard } from '../security/guards';
+import { UserClaimsComponent } from '../security/components/user-claims';
 
 const routes: Routes = [
   {
@@ -16,12 +16,15 @@ const routes: Routes = [
   {
     path: 'pictures',
     loadChildren: () => import('src/app/areas/pictures/pictures.module').then(m => m.PicturesModule),
-    // canActivate: [AuthorizationGuard]
   },
   {
     path: 'login',
     component: LogInComponent
   },
+  {
+    path: 'claims',
+    component: UserClaimsComponent
+  }
 ];
 
 @NgModule({

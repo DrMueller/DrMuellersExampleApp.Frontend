@@ -1,0 +1,23 @@
+  <mat-card class="mat-card">
+    <mat-card-title>Claims of {{ userName$ | async }}</mat-card-title>
+    <mat-card-content>
+      <table>
+        <tr>
+          <th class="claims-header">Type</th>
+          <th class="claims-header">Value</th>
+        </tr>
+        <ng-container *ngFor="let claim of userClaims$ | async">
+          <tr>
+            <td>
+              <span class="claims-value-type">
+                {{ claim.type }}
+              </span>
+            </td>
+            <td>
+              {{ claim.value }}
+            </td>
+          </tr>
+        </ng-container>
+      </table>
+    </mat-card-content>
+</mat-card>

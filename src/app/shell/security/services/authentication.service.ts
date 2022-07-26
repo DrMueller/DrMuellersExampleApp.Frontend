@@ -45,6 +45,7 @@ export class AuthenticationService {
           user.userName = nameClaim!.value;
           user.isAuthenticated = true;
           user.token = loginResult.token;
+          user.claims = loginResult.claims;
           return of(user);
         } else {
           return this.createGuestUser$();

@@ -4,11 +4,11 @@ import * as SecurityActions from './security.actions';
 
 export const securityFeatureKey = 'security';
 
-export interface State {
+export interface SecurityState {
   user: SecurityUser
 }
 
-export const initialState: State = {
+export const initialState: SecurityState = {
   user: new SecurityUser()
 };
 

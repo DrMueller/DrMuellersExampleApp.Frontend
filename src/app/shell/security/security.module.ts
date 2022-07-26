@@ -11,10 +11,12 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { BearerAuthInterceptor } from './interceptors';
 import { SecurityEffects } from './state/security.effects';
 import { securityFeatureKey, reducer } from './state/security.reducer';
+import { UserClaimsComponent } from './components/user-claims/user-claims.component';
 
 @NgModule({
   declarations: [
-    LogInComponent
+    LogInComponent,
+    UserClaimsComponent
   ],
   imports: [
     BusyIndicationModule,

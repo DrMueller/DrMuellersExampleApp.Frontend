@@ -18,6 +18,11 @@ export class UserMenuComponent implements OnInit {
     private store: Store<any>) {
   }
 
+  public showClaims(): void {
+    this.router.navigate(['claims']);
+  }
+
+
   public get isUserAuthenticated$(): Observable<boolean> {
     return this.store.pipe(select(getUserIsAuthenticated));
   }

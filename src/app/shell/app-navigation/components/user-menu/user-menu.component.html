@@ -17,11 +17,11 @@
     <mat-menu #menu="matMenu">
       <ng-container *ngIf="(isUserAuthenticated$ | async) === false">
         <button mat-menu-item (click)="logIn()">Log in</button>
+
       </ng-container>
 
-      <mat-divider></mat-divider>
-
       <ng-container *ngIf="(isUserAuthenticated$ | async)">
+        <button mat-menu-item (click)="showClaims()">Show claims</button>
         <button mat-menu-item (click)="logOut()">Log out</button>
       </ng-container>
     </mat-menu>

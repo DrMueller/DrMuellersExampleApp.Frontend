@@ -1,6 +1,8 @@
+import { Claim } from "./claim.model";
+
 export class SecurityUser {
-  public userName = '';
+  public claims: Claim[] = [];
   public isAuthenticated = false;
   public token = '';
-
+  public userName = '';
 }
