@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { OverviewComponent } from './overview';
 import { EntryPointComponent } from './entry-point';
 import { HomeRoutingModule } from './home-routing.module';
+import { MatDependenciesModule } from 'src/app/mat-deps';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { HomeRoutingModule } from './home-routing.module';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    MatDependenciesModule
   ]
 })
 export class HomeModule { }
