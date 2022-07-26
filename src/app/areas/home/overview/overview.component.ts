@@ -7,9 +7,4 @@ import { AppSettingsSingletonService } from 'src/app/core/app-settings/services'
   styleUrls: ['./overview.component.sass']
 })
 export class OverviewComponent {
-  constructor(private appSettings: AppSettingsSingletonService) { }
-
-  public get pictureUrl(): string {
-    return `${this.appSettings.instance.serverBaseUrl}/api/assets/ThumbsUp.jpg`;
-  }
 }

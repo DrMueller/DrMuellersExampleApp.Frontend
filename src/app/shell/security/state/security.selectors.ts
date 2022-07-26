@@ -1,26 +1,21 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromSecurity from './security.reducer';
 
-export const selectSecurityState = createFeatureSelector<fromSecurity.State>(
+export const getSecurityState = createFeatureSelector<fromSecurity.State>(
   fromSecurity.securityFeatureKey
 );
 
-const getUserState = createSelector(
-  selectSecurityState,
-  state => state.user
-);
-
 export const getUserIsAuthenticated = createSelector(
-  selectSecurityState,
+  getSecurityState,
   state => state.user.isAuthenticated
 );
 
 export const getUserToken = createSelector(
-  selectSecurityState,
+  getSecurityState,
   state => state.user.token
 );
 
 export const getUserName = createSelector(
-  selectSecurityState,
+  getSecurityState,
   state => state.user.userName
 );

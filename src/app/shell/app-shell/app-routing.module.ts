@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LogInComponent } from '../security/components/log-in/log-in.component';
+import { AuthorizationGuard } from '../security/guards';
 
 const routes: Routes = [
   {
@@ -11,6 +12,11 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('src/app/areas/home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: 'pictures',
+    loadChildren: () => import('src/app/areas/pictures/pictures.module').then(m => m.PicturesModule),
+    // canActivate: [AuthorizationGuard]
   },
   {
     path: 'login',
