@@ -20,7 +20,8 @@ export class AppNavigationEntryFactoryService {
 
     this._cache = [
       new AppNavigationEntry('Home', 'home'),
-      new AppNavigationEntry('Pictures', 'pictures'),
+      // new AppNavigationEntry('Pictures', 'pictures'),
+      new AppNavigationEntry('About me', 'about-me'),
     ];
   }
 }

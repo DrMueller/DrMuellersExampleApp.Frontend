@@ -18,6 +18,10 @@ const routes: Routes = [
     loadChildren: () => import('src/app/areas/pictures/pictures.module').then(m => m.PicturesModule),
   },
   {
+    path: 'about-me',
+    loadChildren: () => import('src/app/areas/about-me/about-me.module').then(m => m.AboutMeModule),
+  },
+  {
     path: 'login',
     component: LogInComponent
   },

@@ -45,10 +45,6 @@ export function initializeApp(appInitService: AppInitService): Function {
 
   ],
   providers: [
-    // {
-    //   provide: APP_BASE_HREF,
-    //   useValue: '/ea/'
-    // },
     {
       provide: APP_INITIALIZER,
       useFactory: initializeApp,
