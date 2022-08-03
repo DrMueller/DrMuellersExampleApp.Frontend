@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
+import { ChildrenOutletContexts } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BusyIndicatorService } from 'src/app/core/loading-indication/services';
+import { slideInAnimation } from './app.animation';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    slideInAnimation
+  ]
 })
 export class AppComponent {
-
   public constructor(
     private busyIndicator: BusyIndicatorService) {
   }
