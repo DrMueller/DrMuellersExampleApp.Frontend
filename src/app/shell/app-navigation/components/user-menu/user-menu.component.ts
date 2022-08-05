@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { IAppState } from 'src/app/shell/app-state';
-import { allThemes, AppTheme, darkTheme, lightTheme } from 'src/app/shell/app-styling/models';
+import { allThemes, AppTheme } from 'src/app/shell/app-styling/models';
 import { getAppTheme, setAppTheme } from 'src/app/shell/app-styling/state';
 import { getUserIsAuthenticated, getUserName, logOut } from 'src/app/shell/security/state';
 

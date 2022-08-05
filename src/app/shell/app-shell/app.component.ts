@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ChildrenOutletContexts } from '@angular/router';
-import { Observable } from 'rxjs';
+import type { Observable } from 'rxjs';
 import { BusyIndicatorService } from 'src/app/core/loading-indication/services';
 import { slideInAnimation } from './app.animation';
 

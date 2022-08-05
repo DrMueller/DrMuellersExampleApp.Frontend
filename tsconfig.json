@@ -13,7 +13,6 @@
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
-    "importsNotUsedAsValues": "error",
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
