@@ -13,10 +13,10 @@ export class AppStylingService {
   constructor(
     private store: Store<IAppStylingState>,
     private storage: StorageService) {
-      this.store.select(getAppTheme).subscribe(app => {
-        if (app){
-          this.switchThemes(app);
-          this.storage.save('appTheme', app);
+      this.store.select(getAppTheme).subscribe(appTheme => {
+        if (appTheme){
+          this.switchThemes(appTheme);
+          this.storage.save('appTheme', appTheme);
         }
       });
     }
