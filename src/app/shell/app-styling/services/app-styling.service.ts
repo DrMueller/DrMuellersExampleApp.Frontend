@@ -1,34 +1,28 @@
 import { Injectable } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { IAppState } from '../../app-state';
-import { getAppTheme, IAppStylingState } from '../state';
-import { tap } from 'rxjs';
 import { AppTheme } from '../models';
 import { StorageService } from 'src/app/core/storage/services';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppStylingService {
   constructor(
-    private store: Store<IAppStylingState>,
-    private storage: StorageService) {
-      this.store.select(getAppTheme).subscribe(appTheme => {
-        if (appTheme){
-          this.switchThemes(appTheme);
-          this.storage.save('appTheme', appTheme);
-        }
-      });
-    }
+    private storage: StorageService,
+    private overlayContainer: OverlayContainer) {    }
 
-  private switchThemes(newTheme: AppTheme): void {
+  public switchThemes(appTheme: AppTheme): void {
     const classes = document.body.classList;
+
+    this.storage.save('appTheme', appTheme);
+
     classes.forEach(className => {
       if(className.includes('theme')) {
         document.body.classList.remove(className);
       }
     });
 
-    document.body.classList.add(newTheme.className);
+    this.overlayContainer.getContainerElement().classList.add(appTheme.className);
+    document.body.classList.add(appTheme.className);
   }
 }

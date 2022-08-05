@@ -15,6 +15,10 @@ export class RxFormControlValidationService {
   public constructor(@Inject(VALIDATION_ERROR_MAPPER_TOKEN) private validationErrorMappers: IValidationErrorMapperService[]) {
   }
 
+  public checkIfFormControlIsValid(formControl: AbstractControl): boolean {
+    return (!formControl.touched && !formControl.dirty) || formControl.valid;
+  }
+
   public validateFormControl(formControl: AbstractControl): ValidationError[] {
     if (this.checkIfFormControlIsValid(formControl)) {
       return [];
@@ -37,9 +41,5 @@ export class RxFormControlValidationService {
     });
 
     return result;
-  }
-
-  public checkIfFormControlIsValid(formControl: AbstractControl): boolean {
-    return (!formControl.touched && !formControl.dirty) || formControl.valid;
   }
 }

@@ -12,10 +12,20 @@ import { getUserIsAuthenticated, getUserName, logOut } from 'src/app/shell/secur
   styleUrls: ['./user-menu.component.scss']
 })
 export class UserMenuComponent implements OnInit {
+  private _selectedApppTheme?: AppTheme;
+
   public appThemes: AppTheme[] = allThemes;
   public isUserAuthenticated: boolean = false;
+  public userName: string = '';
 
-private _selectedApppTheme?: AppTheme;
+  public constructor(
+    private router: Router,
+    private store: Store<any>) {
+  }
+
+  public get isUserAuthenticated$(): Observable<boolean> {
+    return this.store.pipe(select(getUserIsAuthenticated));
+  }
 
   public get selectedApppTheme(): AppTheme | undefined {
     return this._selectedApppTheme;
@@ -29,18 +39,6 @@ private _selectedApppTheme?: AppTheme;
         appTheme: appTheme
       }))
     }
-  }
-
-  public userName: string = '';
-
-  public constructor(
-    private router: Router,
-    private store: Store<any>) {
-
-  }
-
-  public get isUserAuthenticated$(): Observable<boolean> {
-    return this.store.pipe(select(getUserIsAuthenticated));
   }
 
   public logIn(): void {

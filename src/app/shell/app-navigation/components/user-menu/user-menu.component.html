@@ -28,7 +28,7 @@
       <button mat-menu-item [matMenuTriggerFor]="theming">Theming</button>
     </mat-menu>
 
-    <mat-menu #theming="matMenu">
+    <mat-menu class="dark-theme" #theming="matMenu">
       <mat-radio-group class="user-menu-radio-group" [(ngModel)]="selectedApppTheme">
         <mat-radio-button class="user-menu-radio-button" *ngFor="let theme of appThemes" [value]="theme">
           {{theme.description}}

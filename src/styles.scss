@@ -83,16 +83,17 @@ $darkTheme: mat-dark-theme($primary-palette, $accent-palette, $warn-palette);
 }
 
 .dark-theme {
-  @include angular-material-theme($darkTheme);
+  @include mat.all-component-themes($darkTheme);
   @include mat.strong-focus-indicators-theme($darkTheme);
+
 }
+
 // **************** Styling definition End
 
 // **************** App style variables start
 $primary: mat-color($primary-palette);
 $accent: mat-color($accent-palette);
 $warn: mat-color($warn-palette);
-
 $disabled: rgba(0,0,0,.26);
 // **************** App style variables end
 

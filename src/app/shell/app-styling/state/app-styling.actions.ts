@@ -8,3 +8,9 @@ export const setAppTheme = createAction(
   }>()
 );
 
+export const setAppThemeSuccess = createAction(
+  '[app-styling] Set app theme success',
+  props<{
+    appTheme: AppTheme
+  }>()
+);
