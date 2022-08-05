@@ -7,9 +7,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/app/environments/environment';
 
 import { IAppState, routerFeatureKey } from '.';
+import { AppStylingModule } from '../app-styling';
+import { AppStylingEffects, appStylingReducer } from '../app-styling/state';
 
 const reducers: ActionReducerMap<IAppState> = {
-  router: routerReducer
+  router: routerReducer,
 };
 
 @NgModule({
@@ -27,7 +29,8 @@ const reducers: ActionReducerMap<IAppState> = {
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot(),
+    AppStylingModule
   ]
 })
 export class AppStateModule { }

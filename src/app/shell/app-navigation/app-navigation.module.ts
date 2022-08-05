@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MatDependenciesModule } from 'src/app/mat-deps';
 import { SecurityModule } from '../security';
@@ -25,7 +26,8 @@ import { AppNavigationEntryFactoryService } from './services';
     CommonModule,
     RouterModule,
     MatDependenciesModule,
-    SecurityModule
+    SecurityModule,
+    FormsModule
   ]
 })
 export class AppNavigationModule { }

@@ -2,13 +2,13 @@
   <mat-sidenav #sideNav mode="over" class="sidenav" fixedInViewport="true" (openedChange)="sidebarOpenChanged($event)">
     <mat-toolbar color="primary">
       <button mat-icon-button (click)="toggleSideNav()">
-        <mat-icon>menu</mat-icon>
+        <mat-icon color="accent">menu</mat-icon>
       </button>
-      <span>Navigation</span>
+      <label class="color-accent">Navigation</label>
     </mat-toolbar>
     <div>
       <mat-nav-list>
-        <span *ngFor="let nav of appNavigationEntries">
+        <span class="color-accent" *ngFor="let nav of appNavigationEntries">
           <a (click)="toggleSideNav()" mat-list-item class="nav-link" routerLinkActive="active"
             [routerLink]="nav.baseUrl">{{ nav.displayText }}</a>
         </span>

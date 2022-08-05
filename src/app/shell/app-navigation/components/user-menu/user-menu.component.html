@@ -1,7 +1,7 @@
 <div class="main-container">
   <div class="welcome-container">
     <div class="welcome-container-item">
-      <span>
+      <span class="color-accent">
         Welcome {{userName}}
       </span>
     </div>
@@ -9,7 +9,7 @@
 
   <div>
     <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon>account_circle</mat-icon>
+      <mat-icon color="accent">account_circle</mat-icon>
     </button>
   </div>
 
@@ -17,14 +17,23 @@
     <mat-menu #menu="matMenu">
       <ng-container *ngIf="(isUserAuthenticated$ | async) === false">
         <button mat-menu-item (click)="logIn()">Log in</button>
-
       </ng-container>
 
       <ng-container *ngIf="(isUserAuthenticated$ | async)">
         <button mat-menu-item (click)="showClaims()">Show claims</button>
         <button mat-menu-item (click)="logOut()">Log out</button>
       </ng-container>
+
+      <mat-divider></mat-divider>
+      <button mat-menu-item [matMenuTriggerFor]="theming">Theming</button>
     </mat-menu>
 
+    <mat-menu #theming="matMenu">
+      <mat-radio-group class="user-menu-radio-group" [(ngModel)]="selectedApppTheme">
+        <mat-radio-button class="user-menu-radio-button" *ngFor="let theme of appThemes" [value]="theme">
+          {{theme.description}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </mat-menu>
   </div>
 </div>

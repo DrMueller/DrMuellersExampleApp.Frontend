@@ -1,9 +1,106 @@
+@use '@angular/material' as mat;
 @import '~@angular/material/theming';
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-$app-primary: mat-palette($mat-indigo);
-$app-accent: mat-palette($mat-pink, A200, A100, A400);
-$app-warn: mat-palette($mat-red);
+// **************** Styling definition start
+$md-primary: (
+    50 : #e0e2f6,
+    100 : #b3b6e8,
+    200 : #8085d9,
+    300 : #4d54c9,
+    400 : #2630be,
+    500 : #000bb2,
+    600 : #000aab,
+    700 : #0008a2,
+    800 : #000699,
+    900 : #00038a,
+    A100 : #b6b6ff,
+    A200 : #8383ff,
+    A400 : #5050ff,
+    A700 : #3636ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
 
+$md-accent: (
+    50 : #f8fffb,
+    100 : #edfff4,
+    200 : #e1ffed,
+    300 : #d4ffe5,
+    400 : #cbffe0,
+    500 : #c2ffda,
+    600 : #bcffd6,
+    700 : #b4ffd0,
+    800 : #acffcb,
+    900 : #9fffc2,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$primary-palette: mat-palette($md-primary);
+$accent-palette:  mat-palette($md-accent);
+$warn-palette: mat-palette($mat-red);
+
+$lightTheme: mat-light-theme($primary-palette, $accent-palette, $warn-palette);
+$darkTheme: mat-dark-theme($primary-palette, $accent-palette, $warn-palette);
+
+@include mat.core();
+
+.light-theme {
+  @include mat.all-component-themes($lightTheme);
+  @include mat.strong-focus-indicators-theme($lightTheme);
+}
+
+.dark-theme {
+  @include angular-material-theme($darkTheme);
+  @include mat.strong-focus-indicators-theme($darkTheme);
+}
+// **************** Styling definition End
+
+// **************** App style variables start
+$primary: mat-color($primary-palette);
+$accent: mat-color($accent-palette);
+$warn: mat-color($warn-palette);
+
+$disabled: rgba(0,0,0,.26);
+// **************** App style variables end
+
+// **************** App definitions start
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.color-accent {
+  color: $accent;
+}
+// **************** App definitions end

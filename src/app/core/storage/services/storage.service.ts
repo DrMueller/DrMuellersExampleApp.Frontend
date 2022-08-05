@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class StorageService {
   public load<T>(key: string): T | null {
-    const item = sessionStorage.getItem(key);
+    const item = localStorage.getItem(key);
     if (!item || item === 'undefined') {
       return null;
     }
@@ -16,6 +16,6 @@ export class StorageService {
 
   public save<T>(key: string, item: T): void {
     const serializedItem = JSON.stringify(item);
-    sessionStorage.setItem(key, serializedItem);
+    localStorage.setItem(key, serializedItem);
   }
 }

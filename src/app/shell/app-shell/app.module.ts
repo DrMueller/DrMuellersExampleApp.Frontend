@@ -38,11 +38,8 @@ export function initializeApp(appInitService: AppInitService): Function {
     ErrorHandlingModule.forRoot(),
     HttpModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([]),
     RxFormsModule.forRoot(),
     SecurityModule
-
   ],
   providers: [
     {
