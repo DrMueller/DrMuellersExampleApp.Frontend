@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatSidenav} from '@angular/material/sidenav';
+import { MatSidenav } from '@angular/material/sidenav';
 import { environment } from 'src/app/environments/environment';
 
 import { AppNavigationEntry } from '../../models';
@@ -12,23 +12,28 @@ import { AppNavigationEntryFactoryService } from '../../services';
 })
 
 export class AppNavigationComponent implements OnInit {
-  public get isSidebarOpen(): boolean {
-    return this._isSidebarOpen;
-  }
+  private _isSidebarOpen: boolean = false;
 
   @ViewChild('sideNav', { static: false })
   public sideNav!: MatSidenav;
 
-  public isRouterLoading = false;
   public appNavigationEntries: AppNavigationEntry[] = [];
-  private _isSidebarOpen: boolean = false;
+  public isRouterLoading = false;
 
   public constructor(
     private navigationEntriesFactory: AppNavigationEntryFactoryService) {
   }
 
+  public get isSidebarOpen(): boolean {
+    return this._isSidebarOpen;
+  }
+
   public get versionDescription(): string {
     return environment.version;
+  }
+
+  public closeSideNav(): void {
+    this.sideNav.close();
   }
 
   public ngOnInit(): void {
@@ -38,10 +43,6 @@ export class AppNavigationComponent implements OnInit {
 
   public sidebarOpenChanged(isOpen: boolean): void {
     this._isSidebarOpen = isOpen;
-  }
-
-  public closeSideNav(): void {
-    this.sideNav.close();
   }
 
   public toggleSideNav(): void {

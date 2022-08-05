@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { map, mergeMap, tap } from "rxjs";
+import { map, mergeMap } from "rxjs";
 import { UserPicture } from "../models";
 import { PicturesHttpService } from "../services";
 import { loadUserPicture, loadUserPictureSuccess } from './pictures.actions';

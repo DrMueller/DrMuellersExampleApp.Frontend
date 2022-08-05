@@ -14,10 +14,7 @@ import { RxFormsModule } from 'src/app/shared/rx-forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 import { SecurityModule } from '../security';
-// import { APP_BASE_HREF } from '@angular/common';
 
 export function initializeApp(appInitService: AppInitService): Function {
   return () => appInitService.initializeAppAsync();

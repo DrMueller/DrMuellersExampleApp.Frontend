@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, concatMap } from 'rxjs/operators';
-import { Observable, EMPTY, of, mergeMap, tap } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { mergeMap, tap } from 'rxjs';
 import * as SecurityActions from './security.actions';
 import { AuthenticationService } from '../services';
 import { LoginRequest, SecurityUser } from '../models';

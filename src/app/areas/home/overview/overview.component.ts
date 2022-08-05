@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AppSettingsSingletonService } from 'src/app/core/app-settings/services';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-overview',

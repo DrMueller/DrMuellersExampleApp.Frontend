@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { map, mergeMap, tap } from 'rxjs/operators';
+import { mergeMap, tap } from 'rxjs/operators';
 import { StorageService } from 'src/app/core/storage/services';
 
 import { LoginRequest, LoginResult, SecurityUser } from '../models';
