@@ -8,7 +8,6 @@ import { environment } from 'src/app/environments/environment';
 
 import { IAppState, routerFeatureKey } from '.';
 import { AppStylingModule } from '../app-styling';
-import { AppStylingEffects, appStylingReducer } from '../app-styling/state';
 
 const reducers: ActionReducerMap<IAppState> = {
   router: routerReducer,

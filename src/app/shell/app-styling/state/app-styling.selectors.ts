@@ -1,5 +1,5 @@
-import { Action, createFeatureSelector, createSelector } from '@ngrx/store';
-import { IAppStylingState } from './app-styling.reducer';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import type { IAppStylingState } from './app-styling.reducer';
 
 export const appStylingFeatureKey = 'app-styling';
 

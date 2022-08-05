@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { AppTheme, lightTheme } from "../models";
+import type { AppTheme } from "../models";
 import { setAppTheme } from "./app-styling.actions";
 
 export interface IAppStylingState {
