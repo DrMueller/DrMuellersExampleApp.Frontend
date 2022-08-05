@@ -1,5 +1,5 @@
 import { Directive, Input, Renderer2, ViewContainerRef } from '@angular/core';
-import { AbstractControl, FormControl } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 import { RxFormControlValidationService } from '../services';
 

@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { AbstractControl, FormControl } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 import { ValidationError } from '../models';
 

@@ -1,4 +1,4 @@
-import { Action, createFeatureSelector, createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { PicturesState } from '.';
 
 export const picturesFeatureKey = 'pictures';

@@ -10,7 +10,7 @@ import { IValidationErrorMapperService } from '../validation-error-mapper-servic
 export class MinLengthErrorMapperService implements IValidationErrorMapperService {
   private readonly errorKey: string = 'minlength';
 
-  public map(errorKey: string, error: any): ValidationErrorMappingResult {
+  public map(errorKey: string, _: any): ValidationErrorMappingResult {
     if (errorKey !== this.errorKey) {
       return ValidationErrorMappingResult.createNonSuccess();
     }

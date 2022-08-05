@@ -10,7 +10,7 @@ import { IValidationErrorMapperService } from '../validation-error-mapper-servic
 export class MaxLengthErrorMapperService implements IValidationErrorMapperService {
   private readonly errorKey: string = 'maxlength';
 
-  public map(errorKey: string, error: any): ValidationErrorMappingResult {
+  public map(errorKey: string, _: any): ValidationErrorMappingResult {
     if (errorKey !== this.errorKey) {
       return ValidationErrorMappingResult.createNonSuccess();
     }
