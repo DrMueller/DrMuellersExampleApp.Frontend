@@ -85,9 +85,7 @@ $darkTheme: mat-dark-theme($primary-palette, $accent-palette, $warn-palette);
 .dark-theme {
   @include mat.all-component-themes($darkTheme);
   @include mat.strong-focus-indicators-theme($darkTheme);
-
 }
-
 // **************** Styling definition End
 
 // **************** App style variables start
