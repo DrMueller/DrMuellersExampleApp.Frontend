@@ -1,14 +1,9 @@
 @import "src/styles.scss";
 
-$white: rgb(255, 255, 255);
-
 .sidenav-container {
   height: 100%;
 }
 
 .sidenav {
   min-width: 200px;
-}
-.active {
-  background: darken($white, 5%);
 }

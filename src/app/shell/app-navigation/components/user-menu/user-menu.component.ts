@@ -12,9 +12,8 @@ import { getUserIsAuthenticated, getUserName, logOut } from 'src/app/shell/secur
   styleUrls: ['./user-menu.component.scss']
 })
 export class UserMenuComponent implements OnInit {
-  private _selectedApppTheme?: AppTheme;
+  private _selectedAppTheme!: AppTheme;
 
-  public appThemes: AppTheme[] = allThemes;
   public isUserAuthenticated: boolean = false;
   public userName: string = '';
 
@@ -24,21 +23,26 @@ export class UserMenuComponent implements OnInit {
   }
 
   public get isUserAuthenticated$(): Observable<boolean> {
-    return this.store.pipe(select(getUserIsAuthenticated));
+    return this.store.select(getUserIsAuthenticated);
   }
 
-  public get selectedApppTheme(): AppTheme | undefined {
-    return this._selectedApppTheme;
+  public get selectedAppTheme(): AppTheme {
+    return this._selectedAppTheme;
   }
 
-  public set selectedApppTheme(appTheme: AppTheme | undefined) {
-    this._selectedApppTheme = appTheme;
-
-    if (appTheme) {
-      this.store.dispatch(setAppTheme({
-        appTheme: appTheme
-      }))
+  public switchAppTheme(): void {
+    let selectedAppTheme: AppTheme;
+    debugger;
+    if(this.selectedAppTheme.key === allThemes[0].key) {
+      selectedAppTheme = allThemes[1];
     }
+    else {
+      selectedAppTheme = allThemes[0];
+    }
+
+    this.store.dispatch(setAppTheme({
+      appTheme: selectedAppTheme
+    }))
   }
 
   public logIn(): void {
@@ -56,8 +60,8 @@ export class UserMenuComponent implements OnInit {
     });
 
     this.store.select(getAppTheme).subscribe(appTheme => {
-      if (appTheme !== this.selectedApppTheme) {
-        this.selectedApppTheme = appTheme;
+      if (appTheme) {
+        this._selectedAppTheme = appTheme;
       }
     });
   }

@@ -25,15 +25,9 @@
       </ng-container>
 
       <mat-divider></mat-divider>
-      <button mat-menu-item [matMenuTriggerFor]="theming">Theming</button>
-    </mat-menu>
-
-    <mat-menu #theming="matMenu">
-      <mat-radio-group class="user-menu-radio-group" [(ngModel)]="selectedApppTheme">
-        <mat-radio-button class="user-menu-radio-button" *ngFor="let theme of appThemes" [value]="theme">
-          {{theme.description}}
-        </mat-radio-button>
-      </mat-radio-group>
+      <button mat-menu-item (click)="switchAppTheme()">
+        <mat-icon color="accent">{{ selectedAppTheme.iconName }}</mat-icon>
+      </button>
     </mat-menu>
   </div>
 </div>
