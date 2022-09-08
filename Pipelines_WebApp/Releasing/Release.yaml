@@ -13,7 +13,7 @@ pool:
   vmImage: windows-latest
   
 variables:
-- group: DrMuellersExampleApp-Backend
+- group: DrMuellersExampleApp-Frontend
 
 stages:
   - stage: Production
@@ -31,7 +31,7 @@ stages:
                 inputs:
                   buildType: specific
                   project: 'ba9fa09c-552b-4c7d-ac6c-65c3351012f4'
-                  pipeline: 221
+                  pipeline: 226
                   specificBuildWithTriggering: true
                   downloadPath: $(System.DefaultWorkingDirectory)
               - task: AzureRmWebAppDeployment@4
@@ -39,6 +39,6 @@ stages:
                 inputs:
                   azureSubscription: '05b34a60-79e8-4b91-ac72-afb66d4551c9'
                   appType: 'webApp'
-                  WebAppName: 'DrMuellersExampleAppBackend'
+                  WebAppName: 'DrMuellersExampleAppFrontend'
                   packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
                   JSONFiles: '**/*.json'
