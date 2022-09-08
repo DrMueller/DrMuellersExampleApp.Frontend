@@ -4,8 +4,8 @@ trigger: none
 
 resources:
   pipelines:
-    - pipeline: eabwebapp-release-pip # Name of the pipeline resource
-      source: 02-EABWebApp-Create-Artifacts # Name of the pipeline referenced by the pipeline resource
+    - pipeline: eafwebapp-release-pip # Name of the pipeline resource
+      source: 02-EAFWebApp-Create-Artifacts # Name of the pipeline referenced by the pipeline resource
       trigger: true
 
 pool:
