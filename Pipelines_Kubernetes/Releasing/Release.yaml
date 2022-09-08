@@ -1,0 +1,29 @@
+name: 1.0$(rev:.r) # build numbering format
+
+trigger: none
+
+resources:
+  pipelines:
+    - pipeline: eaf-create-artifacts-pip # Name of the pipeline resource
+      source: 02-EAF-Create-Artifacts # Name of the pipeline referenced by the pipeline resource
+      trigger: true
+
+pool:
+  name: Azure Pipelines
+  vmImage: "windows-2022"
+
+stages:
+  - stage: Deployment
+    displayName: "Deployment"
+    jobs:
+      - deployment: "Deployment"
+        displayName: "Deployment"
+        environment: "DrMuellersExampleApp"
+        variables:
+          - group: DrMuellersExampleApp-Common
+          - group: DrMuellersExampleApp-Frontend
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - template: Release_Steps.yaml

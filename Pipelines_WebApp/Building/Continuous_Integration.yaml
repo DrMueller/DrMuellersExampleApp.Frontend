@@ -1,0 +1,54 @@
+name: $(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  batch: true # batch changes if true; start a new build for every push if false (default)
+  branches:
+    include:
+      - refs/heads/master
+
+variables:
+  BuildConfiguration: "Release"
+
+steps:
+  - task: Npm@1
+    displayName: "NPM CI"
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: ci
+
+  - task: Npm@1
+    displayName: 'npm audit'
+    inputs:
+      command: custom
+      customCommand: 'audit --registry=https://registry.npmjs.org/'
+
+  - task: Npm@1
+    displayName: "Lint"
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: "run ci:lint"
+
+  - task: Npm@1
+    displayName: "Build"
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: "run ci:build"
+
+  # - task: Npm@1
+  #   displayName: "Execute Tests"
+  #   inputs:
+  #     command: custom
+  #     verbose: false
+  #     customCommand: "run ci:test"
+
+  # - task: PublishTestResults@2
+  #   displayName: 'Publish Test Results'
+  #   inputs:
+  #     testResultsFiles: '**/testresults/*-tests.xml'
+
+  #     failTaskOnFailedTests: true
+
+  #   condition: succeededOrFailed()

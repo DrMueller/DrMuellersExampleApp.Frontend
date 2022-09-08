@@ -1,0 +1,50 @@
+name: 1.0$(rev:.r) # build numbering format
+
+trigger: none # will disable CI builds entirely
+
+variables:
+  BuildConfiguration: "Release"
+  PublishPath: "$(Build.ArtifactStagingDirectory)/App"
+  ArchiveFile: "$(Build.ArtifactStagingDirectory)/Zip/Artifacts.zip"
+
+resources:
+  pipelines:
+    - pipeline: eafwebapp-create-artifacts-pip # Name of the pipeline resource
+      source: 01-EAFWebApp-Continuous-Integration # Name of the pipeline referenced by the pipeline resource
+      trigger:
+        branches:
+          - refs/heads/master
+
+jobs:
+  - job: "BuildAndPublishAsArtifact"
+    displayName: "Build and save zipped Artifact"
+    pool:
+      name: Azure Pipelines
+      vmImage: ubuntu-latest
+
+    steps:
+      - task: Npm@1
+        displayName: "NPM CI"
+        inputs:
+          command: custom
+          verbose: false
+          customCommand: ci
+
+      - task: Npm@1
+        displayName: "Build"
+        inputs:
+          command: custom
+          verbose: false
+          customCommand: "run ci:build"
+          
+      - task: ArchiveFiles@2
+        displayName: Archive as ZIP
+        inputs:
+          rootFolderOrFile: '$(Build.Repository.LocalPath)/dist'
+          includeRootFolder: false
+          archiveFile: '$(Build.ArtifactStagingDirectory)/Zip/Artifacts.zip'
+
+      - task: PublishBuildArtifacts@1
+        displayName: 'Save Artifact'
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)/Zip'
