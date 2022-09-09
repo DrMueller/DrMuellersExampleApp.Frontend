@@ -28,7 +28,7 @@ steps:
     inputs:
       command: custom
       verbose: false
-      customCommand: "run ci:lint"
+      customCommand: "run ci:format-test"
 
   - task: Npm@1
     displayName: "Build"

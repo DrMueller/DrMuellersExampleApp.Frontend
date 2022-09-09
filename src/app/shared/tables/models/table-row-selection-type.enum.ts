@@ -1,5 +1,5 @@
 export enum TableRowSelectionType {
   ReadOnly,
   Single,
-  Multi
+  Multi,
 }

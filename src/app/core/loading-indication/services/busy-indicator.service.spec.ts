@@ -1,4 +1,4 @@
-import { BusyIndicatorService } from "./busy-indicator.service";
+import { BusyIndicatorService } from './busy-indicator.service';
 
 describe('BusyIndicatorService', () => {
   it('should be created', () => {

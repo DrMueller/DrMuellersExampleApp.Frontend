@@ -8,14 +8,15 @@ import { LoginRequest, LoginResult, SecurityUser } from '../models';
 import { SecurityHttpService } from './security-http.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthenticationService {
   private readonly _userKey = 'User';
 
   public constructor(
     private httpService: SecurityHttpService,
-    private storage: StorageService) { }
+    private storage: StorageService
+  ) {}
 
   public createGuestUser$(): Observable<SecurityUser> {
     const guestUser = new SecurityUser();
@@ -30,7 +31,9 @@ export class AuthenticationService {
     const user = this.storage.load<SecurityUser>(this._userKey);
 
     if (!user) {
-      return this.createGuestUser$().pipe(tap(guestUser => this.saveUser(guestUser)));
+      return this.createGuestUser$().pipe(
+        tap((guestUser) => this.saveUser(guestUser))
+      );
     } else {
       return of(user);
     }
@@ -38,9 +41,11 @@ export class AuthenticationService {
 
   public logIn$(loginRequest: LoginRequest): Observable<SecurityUser> {
     return this.httpService.post$<LoginResult>('login', loginRequest).pipe(
-      mergeMap(loginResult => {
+      mergeMap((loginResult) => {
         if (loginResult.loginSuccess) {
-          const nameClaim = loginResult.claims.find(f => f.type.endsWith('name'));
+          const nameClaim = loginResult.claims.find((f) =>
+            f.type.endsWith('name')
+          );
           const user = new SecurityUser();
           user.userName = nameClaim!.value;
           user.isAuthenticated = true;
@@ -50,7 +55,8 @@ export class AuthenticationService {
         } else {
           return this.createGuestUser$();
         }
-      }));
+      })
+    );
   }
 
   public saveUser(user: SecurityUser): void {

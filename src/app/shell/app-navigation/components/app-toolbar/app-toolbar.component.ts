@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-app-toolbar',
   templateUrl: './app-toolbar.component.html',
-  styleUrls: ['./app-toolbar.component.scss']
+  styleUrls: ['./app-toolbar.component.scss'],
 })
 export class AppToolbarComponent {
   private _isSidebarOpen: boolean = false;

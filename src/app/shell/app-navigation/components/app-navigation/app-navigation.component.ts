@@ -8,11 +8,10 @@ import { AppNavigationEntryFactoryService } from '../../services';
 @Component({
   selector: 'app-app-navigation',
   templateUrl: './app-navigation.component.html',
-  styleUrls: ['./app-navigation.component.scss']
+  styleUrls: ['./app-navigation.component.scss'],
 })
-
 export class AppNavigationComponent implements OnInit {
-  private _isSidebarOpen: boolean = false; 
+  private _isSidebarOpen: boolean = false;
 
   @ViewChild('sideNav', { static: false })
   public sideNav!: MatSidenav;
@@ -22,8 +21,8 @@ export class AppNavigationComponent implements OnInit {
 
   public constructor(
     private navigationEntriesFactory: AppNavigationEntryFactoryService,
-    private appSettingsService: AppSettingsSingletonService) {
-  }
+    private appSettingsService: AppSettingsSingletonService
+  ) {}
 
   public get commitLink(): string {
     const hash = this.appSettingsService.instance.CommitHash;
@@ -43,7 +42,8 @@ export class AppNavigationComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.appNavigationEntries = this.navigationEntriesFactory.createNavigationEntries();
+    this.appNavigationEntries =
+      this.navigationEntriesFactory.createNavigationEntries();
     this._isSidebarOpen = false;
   }
 

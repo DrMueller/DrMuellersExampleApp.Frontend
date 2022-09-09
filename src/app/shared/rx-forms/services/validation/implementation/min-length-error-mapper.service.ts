@@ -5,9 +5,11 @@ import { ValidationError } from '../../../models/validation-error.model';
 import { IValidationErrorMapperService } from '../validation-error-mapper-service.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class MinLengthErrorMapperService implements IValidationErrorMapperService {
+export class MinLengthErrorMapperService
+  implements IValidationErrorMapperService
+{
   private readonly errorKey: string = 'minlength';
 
   public map(errorKey: string, _: any): ValidationErrorMappingResult {
@@ -15,6 +17,9 @@ export class MinLengthErrorMapperService implements IValidationErrorMapperServic
       return ValidationErrorMappingResult.createNonSuccess();
     }
 
-    return new ValidationErrorMappingResult(true, new ValidationError(this.errorKey, 'Minimum length'));
+    return new ValidationErrorMappingResult(
+      true,
+      new ValidationError(this.errorKey, 'Minimum length')
+    );
   }
 }

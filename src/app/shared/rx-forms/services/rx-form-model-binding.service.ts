@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RxFormGroupBindingService {
   public bindToFormGroup(model: any, formGroup: FormGroup) {
     const modelKeys = Object.keys(model);
 
-    modelKeys.forEach(mk => {
+    modelKeys.forEach((mk) => {
       const control = formGroup.controls[mk];
 
       if (control) {

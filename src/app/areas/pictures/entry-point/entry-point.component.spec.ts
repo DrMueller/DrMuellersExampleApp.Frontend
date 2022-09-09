@@ -8,9 +8,8 @@ describe('EntryPointComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EntryPointComponent ]
-    })
-    .compileComponents();
+      declarations: [EntryPointComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(EntryPointComponent);
     component = fixture.componentInstance;

@@ -9,17 +9,9 @@ import { MinLengthErrorMapperService } from './services/validation/implementatio
 import { RequiredErrorMapperService } from './services/validation/implementation/required-error-mapper.service';
 
 @NgModule({
-  declarations: [
-    ValidationErrorsDirective
-  ],
-  exports: [
-    ReactiveFormsModule,
-    ValidationErrorsDirective
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ]
+  declarations: [ValidationErrorsDirective],
+  exports: [ReactiveFormsModule, ValidationErrorsDirective],
+  imports: [CommonModule, ReactiveFormsModule],
 })
 export class RxFormsModule {
   public static forRoot(): ModuleWithProviders<RxFormsModule> {
@@ -29,19 +21,19 @@ export class RxFormsModule {
         {
           provide: VALIDATION_ERROR_MAPPER_TOKEN,
           multi: true,
-          useClass: MinLengthErrorMapperService
+          useClass: MinLengthErrorMapperService,
         },
         {
           provide: VALIDATION_ERROR_MAPPER_TOKEN,
           multi: true,
-          useClass: RequiredErrorMapperService
+          useClass: RequiredErrorMapperService,
         },
         {
           provide: VALIDATION_ERROR_MAPPER_TOKEN,
           multi: true,
-          useClass: MaxLengthErrorMapperService
-        }
-      ]
+          useClass: MaxLengthErrorMapperService,
+        },
+      ],
     };
   }
 }

@@ -6,14 +6,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { MatDependenciesModule } from 'src/app/mat-deps';
 
 @NgModule({
-  declarations: [
-    OverviewComponent,
-    EntryPointComponent
-  ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    MatDependenciesModule
-  ]
+  declarations: [OverviewComponent, EntryPointComponent],
+  imports: [CommonModule, HomeRoutingModule, MatDependenciesModule],
 })
-export class HomeModule { }
+export class HomeModule {}

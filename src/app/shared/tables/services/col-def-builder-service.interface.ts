@@ -4,5 +4,7 @@ import { IColDefBuilderOrchestratorService } from '.';
 
 export interface IColDefBuilderService<T> {
   bindingTo(propertyName: keyof T): IColDefBuilderOrchestratorService<T>;
-  withTemplate(template: TemplateRef<any>): IColDefBuilderOrchestratorService<T>;
+  withTemplate(
+    template: TemplateRef<any>
+  ): IColDefBuilderOrchestratorService<T>;
 }

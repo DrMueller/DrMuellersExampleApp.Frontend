@@ -7,16 +7,8 @@ import { BusyIndicatorComponent } from './components/busy-indicator';
 import { BusyIndicatorDirective } from './directives';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MatDependenciesModule
-  ],
-  exports: [
-    BusyIndicatorDirective
-  ],
-  declarations: [
-    BusyIndicatorDirective,
-    BusyIndicatorComponent,
-  ]
+  imports: [CommonModule, MatDependenciesModule],
+  exports: [BusyIndicatorDirective],
+  declarations: [BusyIndicatorDirective, BusyIndicatorComponent],
 })
-export class BusyIndicationModule { }
+export class BusyIndicationModule {}

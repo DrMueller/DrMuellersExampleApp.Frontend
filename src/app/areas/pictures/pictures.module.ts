@@ -10,15 +10,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { picturesFeatureKey } from './common/state/pictures.selectors';
 
 @NgModule({
-  declarations: [
-    EntryPointComponent,
-    OverviewComponent
-  ],
+  declarations: [EntryPointComponent, OverviewComponent],
   imports: [
     CommonModule,
     PicturesRoutingModule,
     StoreModule.forFeature(picturesFeatureKey, picturesReducers),
     EffectsModule.forFeature([PicturesEffects]),
-  ]
+  ],
 })
-export class PicturesModule { }
+export class PicturesModule {}

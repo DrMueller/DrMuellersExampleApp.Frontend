@@ -7,18 +7,16 @@ import { getUserClaims, getUserName, SecurityState } from '../../state';
 @Component({
   selector: 'app-user-claims',
   templateUrl: './user-claims.component.html',
-  styleUrls: ['./user-claims.component.scss']
+  styleUrls: ['./user-claims.component.scss'],
 })
 export class UserClaimsComponent {
-  constructor(
-    private readonly store: Store<SecurityState>
-  ) { }
+  constructor(private readonly store: Store<SecurityState>) {}
 
-  public get userClaims$(): Observable<Claim[]>{
+  public get userClaims$(): Observable<Claim[]> {
     return this.store.select(getUserClaims);
   }
 
-  public get userName$(): Observable<string>{
+  public get userName$(): Observable<string> {
     return this.store.select(getUserName);
   }
 }

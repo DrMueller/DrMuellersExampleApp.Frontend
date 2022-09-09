@@ -6,18 +6,14 @@ export const logIn = createAction(
   props<{ data: LoginRequest }>()
 );
 
-export const logOut = createAction(
-  '[Security] Log out'
-);
+export const logOut = createAction('[Security] Log out');
 
 export const persistUser = createAction(
   '[Security] Persist user',
   props<{ data: SecurityUser }>()
 );
 
-export const initializeUser = createAction(
-  '[Security] Initialize user'
-);
+export const initializeUser = createAction('[Security] Initialize user');
 
 export const userChanged = createAction(
   '[Security] User changed',

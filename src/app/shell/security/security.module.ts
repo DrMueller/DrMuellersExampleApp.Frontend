@@ -14,24 +14,21 @@ import { securityFeatureKey, reducer } from './state/security.reducer';
 import { UserClaimsComponent } from './components/user-claims/user-claims.component';
 
 @NgModule({
-  declarations: [
-    LogInComponent,
-    UserClaimsComponent
-  ],
+  declarations: [LogInComponent, UserClaimsComponent],
   imports: [
     BusyIndicationModule,
     CommonModule,
     RxFormsModule,
     MatDependenciesModule,
     EffectsModule.forFeature([SecurityEffects]),
-    StoreModule.forFeature(securityFeatureKey, reducer)
+    StoreModule.forFeature(securityFeatureKey, reducer),
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BearerAuthInterceptor,
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
-export class SecurityModule { }
+export class SecurityModule {}

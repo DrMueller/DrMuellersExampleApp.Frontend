@@ -12,19 +12,14 @@ import { MatTableComponent } from './components/mat-table';
   declarations: [
     MatTableComponent,
     ButtonTemplateComponent,
-    ContextMenuTemplateComponent
+    ContextMenuTemplateComponent,
   ],
   exports: [
     ContextMenuTemplateComponent,
     MatTableComponent,
     ButtonTemplateComponent,
-    MatDependenciesModule
+    MatDependenciesModule,
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatDependenciesModule
-  ]
+  imports: [CommonModule, FormsModule, MatDependenciesModule],
 })
-export class TablesModule {
-}
+export class TablesModule {}

@@ -14,20 +14,16 @@ import { AppNavigationEntryFactoryService } from './services';
   declarations: [
     AppNavigationComponent,
     AppToolbarComponent,
-    UserMenuComponent
+    UserMenuComponent,
   ],
-  exports: [
-    AppNavigationComponent
-  ],
-  providers: [
-    AppNavigationEntryFactoryService
-  ],
+  exports: [AppNavigationComponent],
+  providers: [AppNavigationEntryFactoryService],
   imports: [
     CommonModule,
     RouterModule,
     MatDependenciesModule,
     SecurityModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
 })
-export class AppNavigationModule { }
+export class AppNavigationModule {}

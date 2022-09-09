@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppStylingEffects, appStylingFeatureKey, appStylingReducer } from './state';
+import {
+  AppStylingEffects,
+  appStylingFeatureKey,
+  appStylingReducer,
+} from './state';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -9,7 +13,7 @@ import { EffectsModule } from '@ngrx/effects';
   imports: [
     CommonModule,
     StoreModule.forFeature(appStylingFeatureKey, appStylingReducer),
-    EffectsModule.forFeature([AppStylingEffects])
-  ]
+    EffectsModule.forFeature([AppStylingEffects]),
+  ],
 })
-export class AppStylingModule { }
+export class AppStylingModule {}

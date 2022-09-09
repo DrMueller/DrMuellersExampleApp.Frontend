@@ -5,9 +5,11 @@ import { ValidationError } from '../../../models/validation-error.model';
 import { IValidationErrorMapperService } from '../validation-error-mapper-service.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class MaxLengthErrorMapperService implements IValidationErrorMapperService {
+export class MaxLengthErrorMapperService
+  implements IValidationErrorMapperService
+{
   private readonly errorKey: string = 'maxlength';
 
   public map(errorKey: string, _: any): ValidationErrorMappingResult {
@@ -15,6 +17,9 @@ export class MaxLengthErrorMapperService implements IValidationErrorMapperServic
       return ValidationErrorMappingResult.createNonSuccess();
     }
 
-    return new ValidationErrorMappingResult(true, new ValidationError(this.errorKey, 'Maximum length'));
+    return new ValidationErrorMappingResult(
+      true,
+      new ValidationError(this.errorKey, 'Maximum length')
+    );
   }
 }

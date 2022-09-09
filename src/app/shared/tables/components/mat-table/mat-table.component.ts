@@ -1,23 +1,31 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import {
-  Component, EventEmitter, Input,
-  OnInit, Output, ViewChild
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
 } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { ColumnDefinitionsContainer, TableRowSelectionType } from '../../models/index';
+import {
+  ColumnDefinitionsContainer,
+  TableRowSelectionType,
+} from '../../models/index';
 
 @Component({
   selector: 'app-mat-table',
   templateUrl: './mat-table.component.html',
-  styleUrls: ['./mat-table.component.scss']
+  styleUrls: ['./mat-table.component.scss'],
 })
 export class MatTableComponent<T> implements OnInit {
   @Output() public selectionChanged = new EventEmitter<T[]>();
   @Input() public columnDefinitions!: ColumnDefinitionsContainer;
   @Input() public idSelector!: keyof T;
-  @ViewChild(MatPaginator, { static: false }) public matPaginator!: MatPaginator;
+  @ViewChild(MatPaginator, { static: false })
+  public matPaginator!: MatPaginator;
   @ViewChild(MatSort, { static: false }) public matSort!: MatSort;
   @ViewChild(MatTable, { static: false }) public matTable!: MatTable<T>;
 
@@ -35,7 +43,9 @@ export class MatTableComponent<T> implements OnInit {
       result.push('Select');
     }
 
-    result.push(...this.columnDefinitions.allColumnKeys.map(f => f.toString()));
+    result.push(
+      ...this.columnDefinitions.allColumnKeys.map((f) => f.toString())
+    );
     return result;
   }
 
@@ -55,7 +65,7 @@ export class MatTableComponent<T> implements OnInit {
   }
 
   public deleteEntries(entries: T[]): void {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       const dtoIndex = this._data.indexOf(entry);
       this._data.splice(dtoIndex, 1);
     });
@@ -104,7 +114,7 @@ export class MatTableComponent<T> implements OnInit {
 
   public toggleAllSelections(): void {
     if (this._rowSelectionType === TableRowSelectionType.Multi) {
-      this._data.forEach(row => this.selection.toggle(row));
+      this._data.forEach((row) => this.selection.toggle(row));
       this.selectionChanged.emit(this.selection.selected);
     }
   }
@@ -127,14 +137,17 @@ export class MatTableComponent<T> implements OnInit {
     }
 
     if (this._rowSelectionType === TableRowSelectionType.Single) {
-      entries.forEach(entry => this.selection.deselect(entry));
+      entries.forEach((entry) => this.selection.deselect(entry));
     } else {
       this.selection.deselect(...entries);
     }
   }
 
   private initializeDataSource(): void {
-    this.selection = new SelectionModel<T>(this._rowSelectionType === TableRowSelectionType.Multi, []);
+    this.selection = new SelectionModel<T>(
+      this._rowSelectionType === TableRowSelectionType.Multi,
+      []
+    );
     this._dataSource = new MatTableDataSource<T>(this._data);
   }
 }

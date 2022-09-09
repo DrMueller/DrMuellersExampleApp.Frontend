@@ -4,12 +4,16 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { allThemes, AppTheme } from 'src/app/shell/app-styling/models';
 import { getAppTheme, setAppTheme } from 'src/app/shell/app-styling/state';
-import { getUserIsAuthenticated, getUserName, logOut } from 'src/app/shell/security/state';
+import {
+  getUserIsAuthenticated,
+  getUserName,
+  logOut,
+} from 'src/app/shell/security/state';
 
 @Component({
   selector: 'app-user-menu',
   templateUrl: './user-menu.component.html',
-  styleUrls: ['./user-menu.component.scss']
+  styleUrls: ['./user-menu.component.scss'],
 })
 export class UserMenuComponent implements OnInit {
   private _selectedAppTheme!: AppTheme;
@@ -17,10 +21,7 @@ export class UserMenuComponent implements OnInit {
   public isUserAuthenticated: boolean = false;
   public userName: string = '';
 
-  public constructor(
-    private router: Router,
-    private store: Store<any>) {
-  }
+  public constructor(private router: Router, private store: Store<any>) {}
 
   public get isUserAuthenticated$(): Observable<boolean> {
     return this.store.select(getUserIsAuthenticated);
@@ -32,17 +33,17 @@ export class UserMenuComponent implements OnInit {
 
   public switchAppTheme(): void {
     let selectedAppTheme: AppTheme;
-    debugger;
-    if(this.selectedAppTheme.key === allThemes[0].key) {
+    if (this.selectedAppTheme.key === allThemes[0].key) {
       selectedAppTheme = allThemes[1];
-    }
-    else {
+    } else {
       selectedAppTheme = allThemes[0];
     }
 
-    this.store.dispatch(setAppTheme({
-      appTheme: selectedAppTheme
-    }))
+    this.store.dispatch(
+      setAppTheme({
+        appTheme: selectedAppTheme,
+      })
+    );
   }
 
   public logIn(): void {
@@ -55,11 +56,11 @@ export class UserMenuComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.store.pipe(select(getUserName)).subscribe(name => {
+    this.store.pipe(select(getUserName)).subscribe((name) => {
       this.userName = name;
     });
 
-    this.store.select(getAppTheme).subscribe(appTheme => {
+    this.store.select(getAppTheme).subscribe((appTheme) => {
       if (appTheme) {
         this._selectedAppTheme = appTheme;
       }

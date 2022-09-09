@@ -5,15 +5,13 @@ import { NgModule } from '@angular/core';
 import { JsonDateInterceptor } from './interceptors';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JsonDateInterceptor,
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
-export class HttpModule { }
+export class HttpModule {}

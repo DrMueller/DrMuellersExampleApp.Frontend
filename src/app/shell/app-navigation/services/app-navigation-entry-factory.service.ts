@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { AppNavigationEntry } from '../models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppNavigationEntryFactoryService {
   private _cache: Array<AppNavigationEntry> | null = null;

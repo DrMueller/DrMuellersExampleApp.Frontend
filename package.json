@@ -8,7 +8,11 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "ci:build": "ng build --configuration production --output-path=dist",
-    "ci:lint": "ng lint"
+    "ci:lint": "ng lint",
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
+    "ci:format-test": "prettier \"src/**/*.ts\" --list-different",
+    "format:write": "npm run lint:fix && prettier \"src/**/*.{ts,js,md}\" --write"
   },
   "private": true,
   "dependencies": {
@@ -42,11 +46,15 @@
     "@ngrx/schematics": "^14.0.1",
     "@types/jasmine": "~4.0.0",
     "@types/jest": "^28.1.7",
-    "@typescript-eslint/eslint-plugin": "^5.29.0",
-    "@typescript-eslint/parser": "^5.29.0",
-    "eslint": "^8.23.0",
+    "@typescript-eslint/eslint-plugin": "5.29.0",
+    "@typescript-eslint/parser": "5.29.0",
+    "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.5",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.1",
     "jasmine-core": "~4.1.0",
     "jest": "^28.1.3",
     "jest-junit": "^14.0.0",
@@ -56,6 +64,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "typescript": "~4.7.2"
+    "typescript": "^4.7.4"
   }
 }

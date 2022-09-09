@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ErrorInformation } from '../models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ErrorInformationFactoryService {
   public createFromError(error: Error): ErrorInformation {

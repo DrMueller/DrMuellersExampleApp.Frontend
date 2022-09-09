@@ -7,32 +7,39 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/home/overview',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'home',
-    loadChildren: () => import('src/app/areas/home/home.module').then(m => m.HomeModule)
+    loadChildren: () =>
+      import('src/app/areas/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'pictures',
-    loadChildren: () => import('src/app/areas/pictures/pictures.module').then(m => m.PicturesModule),
+    loadChildren: () =>
+      import('src/app/areas/pictures/pictures.module').then(
+        (m) => m.PicturesModule
+      ),
   },
   {
     path: 'about-me',
-    loadChildren: () => import('src/app/areas/about-me/about-me.module').then(m => m.AboutMeModule),
+    loadChildren: () =>
+      import('src/app/areas/about-me/about-me.module').then(
+        (m) => m.AboutMeModule
+      ),
   },
   {
     path: 'login',
-    component: LogInComponent
+    component: LogInComponent,
   },
   {
     path: 'claims',
-    component: UserClaimsComponent
-  }
+    component: UserClaimsComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

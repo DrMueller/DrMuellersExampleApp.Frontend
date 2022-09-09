@@ -23,9 +23,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   exports: [
     MatButtonModule,
     MatCardModule,
@@ -45,7 +43,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatPaginatorModule
-  ]
+    MatPaginatorModule,
+  ],
 })
-export class MatDependenciesModule { }
+export class MatDependenciesModule {}

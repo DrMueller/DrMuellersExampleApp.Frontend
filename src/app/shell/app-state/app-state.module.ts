@@ -29,7 +29,7 @@ const reducers: ActionReducerMap<IAppState> = {
       logOnly: environment.production,
     }),
     EffectsModule.forRoot(),
-    AppStylingModule
-  ]
+    AppStylingModule,
+  ],
 })
-export class AppStateModule { }
+export class AppStateModule {}

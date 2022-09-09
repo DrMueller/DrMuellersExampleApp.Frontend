@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ErrorUnwrappingService {
   public unwrapError(error: any): Error {
@@ -31,7 +31,11 @@ export class ErrorUnwrappingService {
   }
 
   private createFromServerError(error: any): any {
-    if (error.hasOwnProperty('Message') && error.hasOwnProperty('StackTrace') && error.hasOwnProperty('TypeName')) {
+    if (
+      error.hasOwnProperty('Message') &&
+      error.hasOwnProperty('StackTrace') &&
+      error.hasOwnProperty('TypeName')
+    ) {
       const err = new Error(error.Message);
       err.stack = error.StackTrace;
       err.name = error.TypeName;

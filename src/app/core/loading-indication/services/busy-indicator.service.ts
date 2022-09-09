@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BusyIndicatorService {
-  private _showBusyIndicator: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private _showBusyIndicator: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(false);
 
   public get showBusyIndicator$(): Observable<boolean> {
     return this._showBusyIndicator;

@@ -17,8 +17,9 @@ export class CustomErrorHandlerService extends ErrorHandler {
     private ignoredErrorsService: IgnoredErrorsService,
     private errorInformationFactory: ErrorInformationFactoryService,
     private dialog: MatDialog,
-    private ngZone: NgZone) {
-      super();
+    private ngZone: NgZone
+  ) {
+    super();
   }
 
   public override handleError(error: any): void {
@@ -34,7 +35,8 @@ export class CustomErrorHandlerService extends ErrorHandler {
       return;
     }
 
-    const errorInformation = this.errorInformationFactory.createFromError(unpackedError);
+    const errorInformation =
+      this.errorInformationFactory.createFromError(unpackedError);
     this.showErrorDialog(errorInformation);
   }
 
@@ -49,6 +51,10 @@ export class CustomErrorHandlerService extends ErrorHandler {
   }
 
   private checkIsSameAsPreviousError(error: any): boolean {
-    return this._previousError && error.stack === this._previousError.stack && error.message === this._previousError.message;
+    return (
+      this._previousError &&
+      error.stack === this._previousError.stack &&
+      error.message === this._previousError.message
+    );
   }
 }

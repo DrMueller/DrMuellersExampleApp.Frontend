@@ -3,9 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpBaseService } from '../http/services';
 
 export abstract class RepositoryBaseService<T> {
-  protected constructor(
-    protected httpService: HttpBaseService
-  ) { }
+  protected constructor(protected httpService: HttpBaseService) {}
 
   public delete$(id: number): Observable<number> {
     return this.httpService.delete$(id);

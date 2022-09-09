@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { AppSettings } from '../models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppSettingsSingletonService {
   private _appSettings!: AppSettings;
@@ -16,7 +16,6 @@ export class AppSettingsSingletonService {
     const appSettings = await fetch('./app-settings/appsettings.json');
     const data = <AppSettings>await appSettings.json();
 
-    debugger;
     this._appSettings = data;
   }
 }

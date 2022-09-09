@@ -4,13 +4,13 @@ import { AppTheme } from '../models';
 export const setAppTheme = createAction(
   '[app-styling] Set app theme',
   props<{
-    appTheme: AppTheme
+    appTheme: AppTheme;
   }>()
 );
 
 export const setAppThemeSuccess = createAction(
   '[app-styling] Set app theme success',
   props<{
-    appTheme: AppTheme
+    appTheme: AppTheme;
   }>()
 );

@@ -5,13 +5,13 @@ import { Observable } from 'rxjs';
 import { AppSettingsSingletonService } from '../../app-settings/services';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export abstract class HttpBaseService {
   public constructor(
     private httpClient: HttpClient,
-    private appSettingsSingleton: AppSettingsSingletonService) { }
+    private appSettingsSingleton: AppSettingsSingletonService
+  ) {}
 
   public delete$<T>(relativeUrl?: string | number): Observable<T> {
     const completeUrl = this.createCompleteUrl(relativeUrl);
@@ -60,7 +60,7 @@ export abstract class HttpBaseService {
     headers.append('Content-Type', 'application/json');
 
     const httpOptions = {
-      headers: headers
+      headers: headers,
     };
 
     return httpOptions;

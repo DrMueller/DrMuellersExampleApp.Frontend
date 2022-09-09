@@ -9,19 +9,16 @@ export const darkTheme: AppTheme = {
   className: 'dark-theme',
   description: 'Dark theme',
   iconName: 'dark_mode',
-  key: 'dark'
+  key: 'dark',
 };
 
 export const lightTheme: AppTheme = {
   className: 'light-theme',
   description: 'Light theme',
   iconName: 'light_mode',
-  key: 'light'
+  key: 'light',
 };
 
-export const allThemes: AppTheme[] = [
-  lightTheme,
-  darkTheme
-];
+export const allThemes: AppTheme[] = [lightTheme, darkTheme];
 
 export const appThemeStorageKey = 'appTheme';

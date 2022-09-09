@@ -7,21 +7,16 @@ import { ErrorDisplayComponent } from './components/error-display';
 import { CustomErrorHandlerService } from './services';
 
 @NgModule({
-  declarations: [
-    ErrorDisplayComponent
-  ],
-  imports: [
-    CommonModule,
-    MatDependenciesModule
-  ]
+  declarations: [ErrorDisplayComponent],
+  imports: [CommonModule, MatDependenciesModule],
 })
 export class ErrorHandlingModule {
   public static forRoot(): ModuleWithProviders<ErrorHandlingModule> {
     return {
       ngModule: ErrorHandlingModule,
       providers: [
-        { provide: ErrorHandler, useClass: CustomErrorHandlerService }
-      ]
+        { provide: ErrorHandler, useClass: CustomErrorHandlerService },
+      ],
     };
   }
 }

@@ -1,7 +1,4 @@
-import {
-  createReducer,
-  on
-} from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { UserPicture } from '../models';
 import { loadUserPictureSuccess } from './pictures.actions';
 
@@ -11,18 +8,16 @@ export interface PicturesState {
 
 export const initialState: PicturesState = {
   userPicture: <UserPicture>{
-    url: ''
-  }
+    url: '',
+  },
 };
 
 export const picturesReducers = createReducer(
   initialState,
-  on(
-    loadUserPictureSuccess,
-    (state, action) => {
-      return {
-        ...state,
-        userPicture: action.userPicture
-      };
-    })
-)
+  on(loadUserPictureSuccess, (state, action) => {
+    return {
+      ...state,
+      userPicture: action.userPicture,
+    };
+  })
+);

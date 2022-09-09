@@ -10,7 +10,7 @@ import { logIn } from '../../state';
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
-  styleUrls: ['./log-in.component.scss']
+  styleUrls: ['./log-in.component.scss'],
 })
 export class LogInComponent implements OnInit {
   public formGroup!: FormGroup;
@@ -18,7 +18,8 @@ export class LogInComponent implements OnInit {
 
   public constructor(
     private formBuilder: LogInFormBuilderService,
-    private store: Store<IAppState>) { }
+    private store: Store<IAppState>
+  ) {}
 
   public get canLogIn(): boolean {
     return !this.formGroup.invalid && !this.isLoggingIn;
@@ -27,9 +28,9 @@ export class LogInComponent implements OnInit {
   public logIn(): void {
     if (this.canLogIn) {
       this.isLoggingIn = true;
-      const request = <LoginRequest> this.formGroup.value;
+      const request = <LoginRequest>this.formGroup.value;
 
-      this.store.dispatch(logIn({data: request}));
+      this.store.dispatch(logIn({ data: request }));
     }
   }
 

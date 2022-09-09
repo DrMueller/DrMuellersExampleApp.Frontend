@@ -4,7 +4,7 @@ import { AbstractControl } from '@angular/forms';
 import { RxFormControlValidationService } from '../services';
 
 @Directive({
-  selector: '[appValidationErrors]'
+  selector: '[appValidationErrors]',
 })
 export class ValidationErrorsDirective {
   private _formControlToValidate!: AbstractControl;
@@ -12,19 +12,23 @@ export class ValidationErrorsDirective {
   public constructor(
     private vcRef: ViewContainerRef,
     private renderer: Renderer2,
-    private validator: RxFormControlValidationService) {
-  }
+    private validator: RxFormControlValidationService
+  ) {}
 
   @Input() public set appValidationErrors(formControl: AbstractControl) {
     this._formControlToValidate = formControl;
-    this._formControlToValidate.statusChanges.subscribe(validity => this.validate(validity));
+    this._formControlToValidate.statusChanges.subscribe((validity) =>
+      this.validate(validity)
+    );
   }
 
   private validate(validity: string): void {
     this.vcRef.element.nativeElement.innerHTML = '';
 
     if (validity !== 'VALID') {
-      const validationErrors = this.validator.validateFormControl(this._formControlToValidate);
+      const validationErrors = this.validator.validateFormControl(
+        this._formControlToValidate
+      );
       const firstError = validationErrors[0]; // Material Best practices: Only show one error at a time
       const label = <HTMLElement>this.renderer.createElement('label');
       label.innerText = firstError.errorMessage;

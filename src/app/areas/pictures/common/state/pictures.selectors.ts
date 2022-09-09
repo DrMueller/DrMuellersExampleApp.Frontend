@@ -3,9 +3,10 @@ import { PicturesState } from '.';
 
 export const picturesFeatureKey = 'pictures';
 
-const getPicturesSate = createFeatureSelector<PicturesState>(picturesFeatureKey);
+const getPicturesSate =
+  createFeatureSelector<PicturesState>(picturesFeatureKey);
 
 export const getPictureUrl = createSelector(
   getPicturesSate,
-  state => state.userPicture.url
+  (state) => state.userPicture.url
 );

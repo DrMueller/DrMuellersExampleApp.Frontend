@@ -4,16 +4,16 @@ import { AbstractControl } from '@angular/forms';
 import { ValidationError } from '../models';
 
 import { VALIDATION_ERROR_MAPPER_TOKEN } from './validation/constants';
-import {
-  IValidationErrorMapperService
-} from './validation/validation-error-mapper-service.interface';
+import { IValidationErrorMapperService } from './validation/validation-error-mapper-service.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RxFormControlValidationService {
-  public constructor(@Inject(VALIDATION_ERROR_MAPPER_TOKEN) private validationErrorMappers: IValidationErrorMapperService[]) {
-  }
+  public constructor(
+    @Inject(VALIDATION_ERROR_MAPPER_TOKEN)
+    private validationErrorMappers: IValidationErrorMapperService[]
+  ) {}
 
   public checkIfFormControlIsValid(formControl: AbstractControl): boolean {
     return (!formControl.touched && !formControl.dirty) || formControl.valid;
@@ -26,11 +26,10 @@ export class RxFormControlValidationService {
 
     const result: ValidationError[] = [];
     const errorKeys = Object.keys(formControl.errors!);
-    errorKeys.forEach(errorKey => {
-      const errorMappings = this
-        .validationErrorMappers
-        .map(mapper => mapper.map(errorKey, formControl.errors![errorKey]))
-        .filter(mappingResult => mappingResult.isSuccess);
+    errorKeys.forEach((errorKey) => {
+      const errorMappings = this.validationErrorMappers
+        .map((mapper) => mapper.map(errorKey, formControl.errors![errorKey]))
+        .filter((mappingResult) => mappingResult.isSuccess);
 
       if (errorMappings.length > 0) {
         result.push(errorMappings[0].validationError!);

@@ -4,19 +4,23 @@ import { AppSettingsSingletonService } from 'src/app/core/app-settings/services'
 import { StorageService } from 'src/app/core/storage/services';
 
 import { IAppState } from '../../app-state';
-import { AppTheme, appThemeStorageKey, lightTheme } from '../../app-styling/models';
+import {
+  AppTheme,
+  appThemeStorageKey,
+  lightTheme,
+} from '../../app-styling/models';
 import { setAppTheme } from '../../app-styling/state';
 import { initializeUser } from '../../security/state';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppInitService {
   constructor(
     private appSettingsSingleton: AppSettingsSingletonService,
     private store: Store<IAppState>,
-    private storage: StorageService)
-   { }
+    private storage: StorageService
+  ) {}
 
   public async initializeAppAsync(): Promise<void> {
     await this.appSettingsSingleton.initializeAsync();
@@ -25,12 +29,14 @@ export class AppInitService {
     this.initialieAppTheme();
   }
 
-  private initialieAppTheme(): void{
+  private initialieAppTheme(): void {
     let appTheme = this.storage.load<AppTheme>(appThemeStorageKey);
     appTheme = appTheme || lightTheme;
 
-    this.store.dispatch(setAppTheme({
-      appTheme: appTheme
-    }));
+    this.store.dispatch(
+      setAppTheme({
+        appTheme: appTheme,
+      })
+    );
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class IgnoredErrorsService {
   public isIgnoredError(error: Error): boolean {
@@ -10,7 +10,8 @@ export class IgnoredErrorsService {
   }
 
   private isIgnoredRoutingError(error: Error): boolean {
-    const signInCallbackError = 'Cannot match any routes. URL Segment: \'id_token\'';
+    const signInCallbackError =
+      "Cannot match any routes. URL Segment: 'id_token'";
     if (error.message && error.message.indexOf(signInCallbackError) > -1) {
       return true;
     }

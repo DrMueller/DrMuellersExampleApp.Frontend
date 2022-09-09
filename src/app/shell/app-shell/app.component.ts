@@ -7,14 +7,10 @@ import { slideInAnimation } from './app.animation';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [
-    slideInAnimation
-  ]
+  animations: [slideInAnimation],
 })
 export class AppComponent {
-  public constructor(
-    private busyIndicator: BusyIndicatorService) {
-  }
+  public constructor(private busyIndicator: BusyIndicatorService) {}
 
   public get showLoadingIndicator$(): Observable<boolean> {
     return this.busyIndicator.showBusyIndicator$;

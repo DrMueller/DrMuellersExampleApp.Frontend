@@ -8,5 +8,5 @@ export class EmptyDataSource<T> extends DataSource<T> {
     return new Observable();
   }
 
-  public disconnect() { }
+  public disconnect() {}
 }

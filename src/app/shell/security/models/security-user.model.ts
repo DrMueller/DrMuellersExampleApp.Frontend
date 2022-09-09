@@ -1,4 +1,4 @@
-import { Claim } from "./claim.model";
+import { Claim } from './claim.model';
 
 export class SecurityUser {
   public claims: Claim[] = [];

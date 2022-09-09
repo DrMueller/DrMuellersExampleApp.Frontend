@@ -6,14 +6,7 @@ import { AboutMeRoutingModule } from './about-me-routing.module';
 import { MatDependenciesModule } from 'src/app/mat-deps';
 
 @NgModule({
-  declarations: [
-    OverviewComponent,
-    EntryPointComponent
-  ],
-  imports: [
-    CommonModule,
-    AboutMeRoutingModule,
-    MatDependenciesModule
-  ]
+  declarations: [OverviewComponent, EntryPointComponent],
+  imports: [CommonModule, AboutMeRoutingModule, MatDependenciesModule],
 })
-export class AboutMeModule { }
+export class AboutMeModule {}

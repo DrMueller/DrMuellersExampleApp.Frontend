@@ -21,9 +21,7 @@ export function initializeApp(appInitService: AppInitService): Function {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     MatDependenciesModule,
     AppNavigationModule,
@@ -36,16 +34,16 @@ export function initializeApp(appInitService: AppInitService): Function {
     HttpModule,
     HttpClientModule,
     RxFormsModule.forRoot(),
-    SecurityModule
+    SecurityModule,
   ],
   providers: [
     {
       provide: APP_INITIALIZER,
       useFactory: initializeApp,
       deps: [AppInitService],
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
