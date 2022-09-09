@@ -42,7 +42,7 @@ export abstract class HttpBaseService {
   protected abstract getResourceUrl(): string;
 
   private createCompleteUrl(relativeUrl?: string | number): string {
-    let result = this.appSettingsSingleton.instance.serverBaseUrl;
+    let result = this.appSettingsSingleton.instance.backendBaseUrl;
     result = result + this.getResourceUrl() + '/';
 
     if (relativeUrl) {
