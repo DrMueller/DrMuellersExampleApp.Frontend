@@ -15,12 +15,7 @@ variables:
   BuildConfiguration: "Release"
 
 steps:
-  - task: Npm@1
-    displayName: "NPM CI"
-    inputs:
-      command: custom
-      verbose: false
-      customCommand: ci
+  - template: StepTemplates/Initialize.yaml
 
   - task: Npm@1
     displayName: 'npm audit'
@@ -41,19 +36,3 @@ steps:
       command: custom
       verbose: false
       customCommand: "run ci:build"
-
-  # - task: Npm@1
-  #   displayName: "Execute Tests"
-  #   inputs:
-  #     command: custom
-  #     verbose: false
-  #     customCommand: "run ci:test"
-
-  # - task: PublishTestResults@2
-  #   displayName: 'Publish Test Results'
-  #   inputs:
-  #     testResultsFiles: '**/testresults/*-tests.xml'
-
-  #     failTaskOnFailedTests: true
-
-  #   condition: succeededOrFailed()

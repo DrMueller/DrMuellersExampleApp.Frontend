@@ -1,0 +1,12 @@
+steps:
+  - task: NodeTool@0
+    displayName: 'Use Node 17.3.0'
+    inputs:
+      versionSpec: 17.3.0
+      
+  - task: Npm@1
+    displayName: "NPM CI"
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: ci

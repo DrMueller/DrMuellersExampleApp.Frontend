@@ -23,12 +23,7 @@ jobs:
       vmImage: ubuntu-latest
 
     steps:
-      - task: Npm@1
-        displayName: "NPM CI"
-        inputs:
-          command: custom
-          verbose: false
-          customCommand: ci
+      - template: StepTemplates/Initialize.yaml
 
       - task: Npm@1
         displayName: "Build"
