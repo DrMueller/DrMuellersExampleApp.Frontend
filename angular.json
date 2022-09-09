@@ -32,7 +32,9 @@
             "assets": [
               "src/assets",
               "src/app-init",
-              "src/app-settings"
+              "src/app-settings",
+              "src/assets",
+              "src/web.config"
             ],
             "styles": [
               "src/styles.scss"
