@@ -36,15 +36,20 @@ jobs:
           command: custom
           verbose: false
           customCommand: "run ci:build"
-          
-      - task: ArchiveFiles@2
-        displayName: Archive as ZIP
-        inputs:
-          rootFolderOrFile: '$(Build.Repository.LocalPath)/dist'
-          includeRootFolder: false
-          archiveFile: '$(Build.ArtifactStagingDirectory)/Zip/Artifacts.zip'
 
       - task: PublishBuildArtifacts@1
-        displayName: 'Save Artifact'
+        displayName: 'Save unzipped Artifact'
         inputs:
-          PathtoPublish: '$(Build.ArtifactStagingDirectory)/Zip'
+          PathtoPublish: '$(Build.Repository.LocalPath)/dist'
+
+      # - task: ArchiveFiles@2
+      #   displayName: Archive as ZIP
+      #   inputs:
+      #     rootFolderOrFile: '$(Build.Repository.LocalPath)/dist'
+      #     includeRootFolder: false
+      #     archiveFile: '$(Build.ArtifactStagingDirectory)/Zip/Artifacts.zip'
+
+      # - task: PublishBuildArtifacts@1
+      #   displayName: 'Save Artifact'
+      #   inputs:
+      #     PathtoPublish: '$(Build.ArtifactStagingDirectory)/Zip'
