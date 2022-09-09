@@ -37,19 +37,17 @@ jobs:
           verbose: false
           customCommand: "run ci:build"
 
-      - task: PublishBuildArtifacts@1
-        displayName: 'Save unzipped Artifact'
+      - task: qetza.replacetokens.replacetokens-task.replacetokens@5
+        displayName: "Replace tokens in appsettings.json"
         inputs:
-          PathtoPublish: '$(Build.Repository.LocalPath)/dist'
+          rootDirectory: "$(Build.Repository.LocalPath)/dist"
+          targetFiles: |
+            **/appsettings.json
+          tokenPattern: rm
+          verbosity: detailed
+          keepToken: true
 
-      # - task: ArchiveFiles@2
-      #   displayName: Archive as ZIP
-      #   inputs:
-      #     rootFolderOrFile: '$(Build.Repository.LocalPath)/dist'
-      #     includeRootFolder: false
-      #     archiveFile: '$(Build.ArtifactStagingDirectory)/Zip/Artifacts.zip'
-
-      # - task: PublishBuildArtifacts@1
-      #   displayName: 'Save Artifact'
-      #   inputs:
-      #     PathtoPublish: '$(Build.ArtifactStagingDirectory)/Zip'
+      - task: PublishBuildArtifacts@1
+        displayName: "Save unzipped Artifact"
+        inputs:
+          PathtoPublish: "$(Build.Repository.LocalPath)/dist"
