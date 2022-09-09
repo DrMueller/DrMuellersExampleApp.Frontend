@@ -45,10 +45,13 @@ export abstract class HttpBaseService {
     let result = this.appSettingsSingleton.instance.backendBaseUrl;
     result = result + this.getResourceUrl() + '/';
 
+    console.log(this.appSettingsSingleton.instance.backendBaseUrl);
+
     if (relativeUrl) {
       result += relativeUrl;
     }
 
+    console.log(result);
     return result;
   }
 

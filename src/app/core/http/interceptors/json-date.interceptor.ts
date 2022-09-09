@@ -6,13 +6,7 @@ import { map } from 'rxjs/operators';
 // https://dev.to/imben1109/date-handling-in-angular-application-part-2-angular-http-client-and-ngx-datepicker-3fna
 @Injectable()
 export class JsonDateInterceptor implements HttpInterceptor {
-  // #region Properties (1)
-
   private _isoDateFormat = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d*)?Z$/;
-
-  // #endregion Properties (1)
-
-  // #region Public Methods (1)
 
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(map((val: HttpEvent<any>) => {
@@ -24,10 +18,6 @@ export class JsonDateInterceptor implements HttpInterceptor {
       return val;
     }));
   }
-
-  // #endregion Public Methods (1)
-
-  // #region Private Methods (2)
 
   private checkIfIsIsoDateString(value: any): boolean {
     if (!value || typeof value !== 'string') {
@@ -54,6 +44,4 @@ export class JsonDateInterceptor implements HttpInterceptor {
       }
     }
   }
-
-  // #endregion Private Methods (2)
 }
