@@ -42,10 +42,10 @@ export abstract class HttpBaseService {
   protected abstract getResourceUrl(): string;
 
   private createCompleteUrl(relativeUrl?: string | number): string {
-    let result = this.appSettingsSingleton.instance.backendBaseUrl;
+    let result = this.appSettingsSingleton.instance.BackendBaseUrl;
     result = result + this.getResourceUrl() + '/';
 
-    console.log(this.appSettingsSingleton.instance.backendBaseUrl);
+    console.log(this.appSettingsSingleton.instance.BackendBaseUrl);
 
     if (relativeUrl) {
       result += relativeUrl;

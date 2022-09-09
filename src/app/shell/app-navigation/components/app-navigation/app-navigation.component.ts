@@ -26,7 +26,7 @@ export class AppNavigationComponent implements OnInit {
   }
 
   public get commitLink(): string {
-    const hash = this.appSettingsService.instance.commitHash;
+    const hash = this.appSettingsService.instance.CommitHash;
     return `https://github.com/DrMueller/DrMuellersExampleApp.Frontend/commit/${hash}`;
   }
 
@@ -35,7 +35,7 @@ export class AppNavigationComponent implements OnInit {
   }
 
   public get versionDescription(): string {
-    return this.appSettingsService.instance.appVersion;
+    return this.appSettingsService.instance.AppVersion;
   }
 
   public closeSideNav(): void {

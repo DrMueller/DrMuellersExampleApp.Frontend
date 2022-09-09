@@ -16,6 +16,7 @@ export class AppSettingsSingletonService {
     const appSettings = await fetch('./app-settings/appsettings.json');
     const data = <AppSettings>await appSettings.json();
 
+    debugger;
     this._appSettings = data;
   }
 }

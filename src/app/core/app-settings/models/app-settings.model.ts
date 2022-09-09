@@ -1,5 +1,6 @@
+// IMPORTANT: These properties need to be Paascal case, as Azure DevOps can only save them this way
 export class AppSettings {
-  public backendBaseUrl: string = '';
-  public appVersion: string = '';
-  public commitHash: string = '';
+  public BackendBaseUrl: string = '';
+  public AppVersion: string = '';
+  public CommitHash: string = '';
 }
