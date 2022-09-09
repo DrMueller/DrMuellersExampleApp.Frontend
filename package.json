@@ -12,7 +12,7 @@
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "ci:format-test": "prettier \"src/**/*.ts\" --list-different",
-    "format:write": "npm run lint:fix && prettier \"src/**/*.{ts,js,md}\" --write"
+    "format:write": "npm run lint:fix && prettier \"src/**/*.{ts,js,md,html}\" --write"
   },
   "private": true,
   "dependencies": {
