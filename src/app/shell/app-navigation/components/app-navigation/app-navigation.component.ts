@@ -25,6 +25,11 @@ export class AppNavigationComponent implements OnInit {
     private appSettingsService: AppSettingsSingletonService) {
   }
 
+  public get commitLink(): string {
+    const hash = this.appSettingsService.instance.commitHash;
+    return `https://github.com/DrMueller/DrMuellersExampleApp.Frontend/commit/${hash}`;
+  }
+
   public get isSidebarOpen(): boolean {
     return this._isSidebarOpen;
   }
