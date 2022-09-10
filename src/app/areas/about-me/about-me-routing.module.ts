@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MsalGuard } from '@azure/msal-angular';
 import { EntryPointComponent } from './entry-point';
 import { OverviewComponent } from './overview';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
       {
         path: 'overview',
         component: OverviewComponent,
+        canActivate: [MsalGuard],
       },
     ],
   },

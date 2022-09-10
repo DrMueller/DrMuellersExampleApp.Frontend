@@ -9,7 +9,7 @@ export interface SecurityState {
 }
 
 export const initialState: SecurityState = {
-  user: new SecurityUser(),
+  user: SecurityUser.guest
 };
 
 export const reducer = createReducer(

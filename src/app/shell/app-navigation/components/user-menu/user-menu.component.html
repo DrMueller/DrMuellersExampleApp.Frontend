@@ -1,9 +1,7 @@
 <div class="main-container">
   <div class="welcome-container">
     <div class="welcome-container-item">
-      <span class="color-accent">
-        Welcome {{userName}}
-      </span>
+      <span class="color-accent"> Welcome {{ userName }} </span>
     </div>
   </div>
 
@@ -19,7 +17,7 @@
         <button mat-menu-item (click)="logIn()">Log in</button>
       </ng-container>
 
-      <ng-container *ngIf="(isUserAuthenticated$ | async)">
+      <ng-container *ngIf="isUserAuthenticated$ | async">
         <button mat-menu-item (click)="showClaims()">Show claims</button>
         <button mat-menu-item (click)="logOut()">Log out</button>
       </ng-container>

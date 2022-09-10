@@ -7,6 +7,7 @@ import { getAppTheme, setAppTheme } from 'src/app/shell/app-styling/state';
 import {
   getUserIsAuthenticated,
   getUserName,
+  logIn,
   logOut,
 } from 'src/app/shell/security/state';
 
@@ -47,7 +48,7 @@ export class UserMenuComponent implements OnInit {
   }
 
   public logIn(): void {
-    this.router.navigate(['login']);
+    this.store.dispatch(logIn());
   }
 
   public logOut(): void {

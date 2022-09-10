@@ -1,8 +1,11 @@
-import { Claim } from './claim.model';
-
 export class SecurityUser {
-  public claims: Claim[] = [];
-  public isAuthenticated = false;
-  public token = '';
-  public userName = '';
-}
+
+  public static readonly guest = new SecurityUser(false, 'Guest', '');
+
+  constructor(
+    public readonly isAuthenticated: boolean,
+    public readonly userName: string,
+    public readonly token: string) { }
+  }
+
+

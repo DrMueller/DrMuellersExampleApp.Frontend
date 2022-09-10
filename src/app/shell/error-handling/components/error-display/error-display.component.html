@@ -1,6 +1,4 @@
-<h1 mat-dialog-title>
-  Error ho!
-</h1>
+<h1 mat-dialog-title>Error ho!</h1>
 
 <div class="flex-columns">
   <div mat-dialog-content>
@@ -11,13 +9,17 @@
 
     <div class="flex-row">
       <label class="desc">Message</label>
-      <textarea class="error-message" readonly>{{ errorInfo.errorMessage }}</textarea>
+      <textarea class="error-message" readonly>{{
+        errorInfo.errorMessage
+      }}</textarea>
     </div>
   </div>
 </div>
 
 <div class="actions">
   <div mat-dialog-actions>
-    <button mat-stroked-button [mat-dialog-close]="true" cdkFocusInitial>OK</button>
+    <button mat-stroked-button [mat-dialog-close]="true" cdkFocusInitial>
+      OK
+    </button>
   </div>
 </div>

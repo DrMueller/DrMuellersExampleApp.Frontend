@@ -10,7 +10,7 @@ import {
   lightTheme,
 } from '../../app-styling/models';
 import { setAppTheme } from '../../app-styling/state';
-import { initializeUser } from '../../security/state';
+import { MsalCommunicationService } from '../../security/services/msal-communication.service';
 
 @Injectable({
   providedIn: 'root',
@@ -19,13 +19,13 @@ export class AppInitService {
   constructor(
     private appSettingsSingleton: AppSettingsSingletonService,
     private store: Store<IAppState>,
-    private storage: StorageService
+    private storage: StorageService,
+    private msalCommunicationService: MsalCommunicationService
   ) {}
 
   public async initializeAppAsync(): Promise<void> {
     await this.appSettingsSingleton.initializeAsync();
-    this.store.dispatch(initializeUser());
-
+    this.msalCommunicationService.initialize();
     this.initialieAppTheme();
   }
 

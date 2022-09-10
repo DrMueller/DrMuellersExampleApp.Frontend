@@ -16,11 +16,6 @@ export const getUserToken = createSelector(
   (state) => state.user.token
 );
 
-export const getUserClaims = createSelector(
-  getSecurityState,
-  (state) => state.user.claims
-);
-
 export const getUserName = createSelector(
   getSecurityState,
   (state) => state.user.userName
