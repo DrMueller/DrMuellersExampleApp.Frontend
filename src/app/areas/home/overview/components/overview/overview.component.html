@@ -2,7 +2,7 @@
   <div class="overview-content">
     <mat-card>
       <div class="overview-header">
-        <mat-card-title>Welcome</mat-card-title>
+        <mat-card-title>Welcome from Angular</mat-card-title>
       </div>
       <mat-card-content>
         <p>
@@ -14,10 +14,24 @@
           <li><b>Frontend:</b> Angular / TypeScript, including NGRX</li>
           <li><b>Backend:</b> ASP.Net Core Web API</li>
           <li><b>Hosting:</b> Azure Kubernetes Services - AKS</li>
-          <li><b>Kubernetes management:</b> Kubernetes Helm</li>
+          <li><b>Kubernetes management:</b> Either Kubernetes Helm or Azure App Services directly (cost...)</li>
           <li><b>CI / CD:</b> Azure DevOps</li>
         </ul>
       </mat-card-content>
     </mat-card>
+
+    <button mat-raised-button color="primary" (click)="loadFromServer()">Click to load from server</button>
+
+    <div *ngIf="welcomeLoaded">
+      <mat-card>
+        <div class="overview-header">
+          <mat-card-title>Welcome from ASP.Net Core</mat-card-title>
+        </div>
+        <mat-card-content>
+          {{ welcomeFromServer }}
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>
+

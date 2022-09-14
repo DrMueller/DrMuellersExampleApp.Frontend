@@ -18,6 +18,13 @@ const routes: Routes = [
       import('src/app/areas/about-me/about-me.module').then(
         (m) => m.AboutMeModule
       ),
+  },
+  {
+    path: 'graph',
+    loadChildren: () =>
+      import('src/app/areas/graph/graph.module').then(
+        (m) => m.GraphModule
+      ),
   }
 ];
 

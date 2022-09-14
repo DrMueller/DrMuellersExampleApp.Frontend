@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 import { allThemes, AppTheme } from 'src/app/shell/app-styling/models';
 import { getAppTheme, setAppTheme } from 'src/app/shell/app-styling/state';
 import {
-  getUserIsAuthenticated,
-  getUserName,
+  selectUserIsAuthenticated,
+  selectUserName,
   logIn,
   logOut,
 } from 'src/app/shell/security/state';
@@ -25,7 +25,7 @@ export class UserMenuComponent implements OnInit {
   public constructor(private router: Router, private store: Store<any>) {}
 
   public get isUserAuthenticated$(): Observable<boolean> {
-    return this.store.select(getUserIsAuthenticated);
+    return this.store.select(selectUserIsAuthenticated);
   }
 
   public get selectedAppTheme(): AppTheme {
@@ -57,7 +57,7 @@ export class UserMenuComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.store.pipe(select(getUserName)).subscribe((name) => {
+    this.store.pipe(select(selectUserName)).subscribe((name) => {
       this.userName = name;
     });
 

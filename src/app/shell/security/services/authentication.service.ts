@@ -19,11 +19,11 @@ export class AuthenticationService {
     this.msalService.logoutPopup();
   }
 
-  // See: https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-sign-in?tabs=javascript2
   public logIn(): void {
-
     const loginRequest = {
-      scopes: ['User.ReadWrite'],
+      scopes: [
+        'User.ReadWrite',
+        'api://5faa8d73-4b0b-432e-a20f-7caa833a1c51/API2']
     };
 
     this.msalService.loginPopup(loginRequest);
