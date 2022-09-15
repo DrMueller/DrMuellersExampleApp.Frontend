@@ -9,7 +9,7 @@ export interface GraphState {
 }
 
 export const initialState: GraphState = {
-  currentUser: undefined
+  currentUser: undefined,
 };
 
 export const reducer = createReducer(
@@ -18,7 +18,7 @@ export const reducer = createReducer(
   on(loadCurrentUserSuccess, (state, action) => {
     return {
       ...state,
-      currentUser: action.data
-    }
-  } ),
+      currentUser: action.data,
+    };
+  })
 );

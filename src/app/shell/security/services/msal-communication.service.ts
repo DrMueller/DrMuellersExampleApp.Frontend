@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
-import { MsalBroadcastService } from '@azure/msal-angular';
-import { AuthenticationResult, EventMessage, EventType } from '@azure/msal-browser';
+import { MsalBroadcastService, MsalService } from '@azure/msal-angular';
+import {
+  AccountInfo,
+  AuthenticationResult,
+  EventMessage,
+  EventType,
+} from '@azure/msal-browser';
 import { Store } from '@ngrx/store';
 import { filter } from 'rxjs';
 import { IAppState } from '../../app-state';
-import { SecurityUser } from '../models';
 import { userChanged } from '../state';
 
 @Injectable({
-    providedIn: 'root',
-  })
+  providedIn: 'root',
+})
 export class MsalCommunicationService {
   public constructor(
     private broadcastService: MsalBroadcastService,
+    private msalService: MsalService,
     private store: Store<IAppState>
   ) {}
 
@@ -30,18 +35,15 @@ export class MsalCommunicationService {
         const user = this.createUser(result);
         this.store.dispatch(userChanged({ data: user }));
       });
-
   }
 
-  private createUser(message: EventMessage): SecurityUser {
+  private createUser(message: EventMessage): AccountInfo | null {
     if (message.eventType === EventType.LOGOUT_SUCCESS) {
-      return SecurityUser.guest;
+      return null;
     }
 
     const authResult = message.payload as AuthenticationResult;
-    return new SecurityUser(
-        true,
-        authResult.account!.name ?? authResult.account!.username,
-        authResult.accessToken);
+    this.msalService.instance.setActiveAccount(authResult.account);
+    return authResult.account;
   }
 }

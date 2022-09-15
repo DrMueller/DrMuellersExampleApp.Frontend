@@ -11,6 +11,12 @@ import { HomeEffects } from './common/state/home.effects';
 
 @NgModule({
   declarations: [OverviewComponent, EntryPointComponent],
-  imports: [CommonModule, HomeRoutingModule, MatDependenciesModule, StoreModule.forFeature(fromHome.homeFeatureKey, fromHome.reducer), EffectsModule.forFeature([HomeEffects])],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    MatDependenciesModule,
+    StoreModule.forFeature(fromHome.homeFeatureKey, fromHome.reducer),
+    EffectsModule.forFeature([HomeEffects]),
+  ],
 })
 export class HomeModule {}

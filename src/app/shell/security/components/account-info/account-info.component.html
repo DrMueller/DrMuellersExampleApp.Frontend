@@ -1,0 +1,28 @@
+<div class="account-info-container">
+  <div class="account-info-content">
+    <mat-card>
+      <mat-card-title>Account info</mat-card-title>
+      <mat-card-content>
+        <ul>
+          <li>homeAccountId: {{ (accountInfo$ | async)?.homeAccountId }}</li>
+          <li>environment: {{ (accountInfo$ | async)?.environment }}</li>
+          <li>tenantId: {{ (accountInfo$ | async)?.tenantId }}</li>
+          <li>username: {{ (accountInfo$ | async)?.username }}</li>
+          <li>localAccountId: {{ (accountInfo$ | async)?.localAccountId }}</li>
+          <li>name: {{ (accountInfo$ | async)?.name }}</li>
+          <li>idToken: {{ (accountInfo$ | async)?.idToken }}</li>
+          <li>
+            nativeAccountId: {{ (accountInfo$ | async)?.nativeAccountId }}
+          </li>
+        </ul>
+
+        <p>Claims</p>
+        <!-- <ul>
+          <li *ngFor="let claim of accountInfo$.idTokenClaims | async">
+            {{ claim.name }}
+          </li>
+        </ul> -->
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

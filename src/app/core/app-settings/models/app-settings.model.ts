@@ -1,9 +1,9 @@
-import { AzureSettings } from "./azure-settings.model";
+import { AzureSettings } from './azure-settings.model';
 
 // IMPORTANT: These properties need to be Paascal case, as Azure DevOps can only save them this way
-export class AppSettings {
-  public BackendBaseUrl: string = '';
-  public AppVersion: string = '';
-  public CommitHash: string = '';
-  public AzureSettings: AzureSettings = new AzureSettings();
+export interface AppSettings {
+  BackendBaseUrl: string;
+  AppVersion: string;
+  CommitHash: string;
+  AzureSettings: AzureSettings;
 }

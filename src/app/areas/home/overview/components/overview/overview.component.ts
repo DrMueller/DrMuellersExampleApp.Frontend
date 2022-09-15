@@ -11,18 +11,21 @@ import { HomeState } from '../../../common/state/home.reducer';
   styleUrls: ['./overview.component.scss'],
 })
 export class OverviewComponent implements OnInit {
-  constructor(
-    private store: Store<HomeState>) {}
-
+  constructor(private store: Store<HomeState>) {}
 
   ngOnInit(): void {
-    this.store.select(selectAppVersion)
-    .pipe(
-      tap(appVersion => this.welcomeLoaded = appVersion !== undefined), 
-      map(appVersion => `Welcome from ASP.Net Core with the app version ${appVersion}`),
-    ).subscribe(str => {
-      this.welcomeFromServer  = str;
-    });
+    this.store
+      .select(selectAppVersion)
+      .pipe(
+        tap((appVersion) => (this.welcomeLoaded = appVersion !== undefined)),
+        map(
+          (appVersion) =>
+            `Welcome from ASP.Net Core with the app version ${appVersion}`
+        )
+      )
+      .subscribe((str) => {
+        this.welcomeFromServer = str;
+      });
   }
 
   public welcomeLoaded = false;
@@ -30,5 +33,5 @@ export class OverviewComponent implements OnInit {
 
   public async loadFromServer(): Promise<void> {
     this.store.dispatch(loadWelcomes());
-}
+  }
 }

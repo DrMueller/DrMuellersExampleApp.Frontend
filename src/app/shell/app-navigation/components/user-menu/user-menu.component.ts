@@ -58,7 +58,7 @@ export class UserMenuComponent implements OnInit {
 
   public ngOnInit(): void {
     this.store.pipe(select(selectUserName)).subscribe((name) => {
-      this.userName = name;
+      this.userName = name ?? 'Guest';
     });
 
     this.store.select(getAppTheme).subscribe((appTheme) => {
@@ -68,7 +68,7 @@ export class UserMenuComponent implements OnInit {
     });
   }
 
-  public showClaims(): void {
-    this.router.navigate(['claims']);
+  public showAccountInfo(): void {
+    this.router.navigate(['security/account-info']);
   }
 }

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppSettingsSingletonService } from 'src/app/core/app-settings/services';
 import { StorageService } from 'src/app/core/storage/services';
 
 import { IAppState } from '../../app-state';
@@ -17,14 +16,12 @@ import { MsalCommunicationService } from '../../security/services/msal-communica
 })
 export class AppInitService {
   constructor(
-    private appSettingsSingleton: AppSettingsSingletonService,
     private store: Store<IAppState>,
     private storage: StorageService,
     private msalCommunicationService: MsalCommunicationService
   ) {}
 
   public async initializeAppAsync(): Promise<void> {
-    await this.appSettingsSingleton.initializeAsync();
     this.msalCommunicationService.initialize();
     this.initialieAppTheme();
   }

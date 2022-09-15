@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { AppSettingsSingletonService } from '../../../../core/app-settings/services';
+import { AppSettingsProvisioningService } from '../../../../core/app-settings/services';
 
 import { AppNavigationEntry } from '../../models';
 import { AppNavigationEntryFactoryService } from '../../services';
@@ -20,13 +20,11 @@ export class AppNavigationComponent implements OnInit {
   public isRouterLoading = false;
 
   public constructor(
-    private navigationEntriesFactory: AppNavigationEntryFactoryService,
-    private appSettingsService: AppSettingsSingletonService
+    private navigationEntriesFactory: AppNavigationEntryFactoryService
   ) {}
 
   public get commitLink(): string {
-    const hash = this.appSettingsService.instance.CommitHash;
-    return `https://github.com/DrMueller/DrMuellersExampleApp.Frontend/commit/${hash}`;
+    return `https://github.com/DrMueller/DrMuellersExampleApp.Frontend/commit/${AppSettingsProvisioningService.settings.CommitHash}`;
   }
 
   public get isSidebarOpen(): boolean {
@@ -34,7 +32,7 @@ export class AppNavigationComponent implements OnInit {
   }
 
   public get versionDescription(): string {
-    return this.appSettingsService.instance.AppVersion;
+    return AppSettingsProvisioningService.settings.AppVersion;
   }
 
   public closeSideNav(): void {

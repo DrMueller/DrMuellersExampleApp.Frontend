@@ -2,16 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { AppSettingsSingletonService } from '../../app-settings/services';
+import { AppSettingsProvisioningService } from '../../app-settings/services';
 
 @Injectable({
   providedIn: 'root',
 })
 export abstract class HttpBaseService {
-  public constructor(
-    private httpClient: HttpClient,
-    private appSettingsSingleton: AppSettingsSingletonService
-  ) {}
+  public constructor(private httpClient: HttpClient) {}
 
   public delete$<T>(relativeUrl?: string | number): Observable<T> {
     const completeUrl = this.createCompleteUrl(relativeUrl);
@@ -42,10 +39,10 @@ export abstract class HttpBaseService {
   protected abstract getResourceUrl(): string;
 
   private createCompleteUrl(relativeUrl?: string | number): string {
-    let result = this.appSettingsSingleton.instance.BackendBaseUrl;
+    let result = AppSettingsProvisioningService.settings.BackendBaseUrl;
     result = result + this.getResourceUrl() + '/';
 
-    console.log(this.appSettingsSingleton.instance.BackendBaseUrl);
+    console.log(AppSettingsProvisioningService.settings.BackendBaseUrl);
 
     if (relativeUrl) {
       result += relativeUrl;

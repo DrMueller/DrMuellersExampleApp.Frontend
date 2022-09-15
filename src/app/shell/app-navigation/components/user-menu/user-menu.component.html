@@ -18,7 +18,9 @@
       </ng-container>
 
       <ng-container *ngIf="isUserAuthenticated$ | async">
-        <button mat-menu-item (click)="showClaims()">Show claims</button>
+        <button mat-menu-item (click)="showAccountInfo()">
+          Show account info
+        </button>
         <button mat-menu-item (click)="logOut()">Log out</button>
       </ng-container>
 

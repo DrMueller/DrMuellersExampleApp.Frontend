@@ -1,16 +1,16 @@
 <div class="overview-container">
-    <div class="overview-content">
-  
-      <button mat-raised-button color="primary" (click)="loadGraphUser()">Load current user</button>
+  <div class="overview-content">
+    <button mat-raised-button color="primary" (click)="loadGraphUser()">
+      Load current user
+    </button>
 
-      <mat-card *ngIf="formattedUser$ | async">
-        <div class="overview-header">
-          <mat-card-title>Graph User</mat-card-title>
-        </div>
-        <mat-card-content>
-            <div>{{ formattedUser$ | async | json }}</div>
-        </mat-card-content>
-      </mat-card>
-    </div>
+    <mat-card *ngIf="formattedUser$ | async">
+      <div class="overview-header">
+        <mat-card-title>Graph User</mat-card-title>
+      </div>
+      <mat-card-content>
+        <div>{{ formattedUser$ | async | json }}</div>
+      </mat-card-content>
+    </mat-card>
   </div>
-  
+</div>

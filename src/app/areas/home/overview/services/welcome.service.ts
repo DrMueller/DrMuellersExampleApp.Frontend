@@ -4,15 +4,12 @@ import { WelcomeDto } from '../../common/dtos';
 import { HomeHttpService } from '../../common/services/home-http.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WelcomeService {
+  constructor(private httpService: HomeHttpService) {}
 
-  constructor(
-    private httpService: HomeHttpService
-  ) { }
-
-  public getWelcome$(): Observable<WelcomeDto>{
+  public getWelcome$(): Observable<WelcomeDto> {
     return this.httpService.get$<WelcomeDto>('');
   }
 }

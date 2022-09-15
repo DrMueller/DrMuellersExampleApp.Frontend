@@ -8,15 +8,15 @@ export const selectSecurityState =
 
 export const selectUserIsAuthenticated = createSelector(
   selectSecurityState,
-  (state) => state.user.isAuthenticated
-);
-
-export const selectUserToken = createSelector(
-  selectSecurityState,
-  (state) => state.user.token
+  (state) => state.account !== null
 );
 
 export const selectUserName = createSelector(
   selectSecurityState,
-  (state) => state.user.userName
+  (state) => state.account?.name
+);
+
+export const selectACcount = createSelector(
+  selectSecurityState,
+  (state) => state.account
 );

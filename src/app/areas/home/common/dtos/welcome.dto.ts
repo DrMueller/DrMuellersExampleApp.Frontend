@@ -1,3 +1,3 @@
 export interface WelcomeDto {
-    appVersion: string;
+  appVersion: string;
 }

@@ -12,8 +12,7 @@ export class HomeEffects {
       mergeMap(() =>
         this.welcomeService
           .getWelcome$()
-          .pipe(
-            map((welcomeDto) => loadWelcomesSuccess({ data: welcomeDto })))
+          .pipe(map((welcomeDto) => loadWelcomesSuccess({ data: welcomeDto })))
       )
     );
   });

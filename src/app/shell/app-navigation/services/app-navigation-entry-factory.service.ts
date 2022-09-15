@@ -21,7 +21,7 @@ export class AppNavigationEntryFactoryService {
     this._cache = [
       new AppNavigationEntry('Home', 'home'),
       new AppNavigationEntry('About me', 'about-me'),
-      new AppNavigationEntry('Graph API fun', 'graph')
+      new AppNavigationEntry('Graph API fun', 'graph'),
     ];
   }
 }

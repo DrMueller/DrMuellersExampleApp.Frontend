@@ -1,1 +1,1 @@
-export * from './app-settings-singleton.service';
+export * from './app-settings-provisioning.service';

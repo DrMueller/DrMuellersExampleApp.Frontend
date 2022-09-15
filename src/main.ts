@@ -1,5 +1,7 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppSettingsProvisioningService } from './app/core/app-settings/services';
+// import { AppSettingsProvisioningService } from './app/core/app-settings/services';
 
 import { environment } from './app/environments/environment';
 import { AppModule } from './app/shell/app-shell/app.module'; // Doesn't work with barrels!
@@ -8,6 +10,9 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch((err) => console.error(err));
+// See https://github.com/angular/angular/issues/23279
+AppSettingsProvisioningService.assureInitializedAsync().then(() => {
+  platformBrowserDynamic()
+    .bootstrapModule(AppModule)
+    .catch((err) => console.error(err));
+});

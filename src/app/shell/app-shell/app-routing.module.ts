@@ -22,10 +22,15 @@ const routes: Routes = [
   {
     path: 'graph',
     loadChildren: () =>
-      import('src/app/areas/graph/graph.module').then(
-        (m) => m.GraphModule
+      import('src/app/areas/graph/graph.module').then((m) => m.GraphModule),
+  },
+  {
+    path: 'security',
+    loadChildren: () =>
+      import('src/app/shell/security/security.module').then(
+        (m) => m.SecurityModule
       ),
-  }
+  },
 ];
 
 @NgModule({

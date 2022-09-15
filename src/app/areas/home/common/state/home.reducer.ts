@@ -9,7 +9,7 @@ export interface HomeState {
 }
 
 export const initialState: HomeState = {
-  welcome: <WelcomeDto>{}
+  welcome: <WelcomeDto>{},
 };
 
 export const reducer = createReducer(

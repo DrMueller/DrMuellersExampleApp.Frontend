@@ -1,15 +1,15 @@
+import { AccountInfo } from '@azure/msal-browser';
 import { createReducer, on } from '@ngrx/store';
-import { SecurityUser } from '../models';
 import * as SecurityActions from './security.actions';
 
 export const securityFeatureKey = 'security';
 
 export interface SecurityState {
-  user: SecurityUser;
+  account: AccountInfo | null;
 }
 
 export const initialState: SecurityState = {
-  user: SecurityUser.guest
+  account: null,
 };
 
 export const reducer = createReducer(
@@ -17,7 +17,7 @@ export const reducer = createReducer(
   on(SecurityActions.userChanged, (state, action) => {
     return {
       ...state,
-      user: action.data,
+      account: action.data,
     };
   })
 );

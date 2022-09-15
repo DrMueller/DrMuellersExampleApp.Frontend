@@ -10,10 +10,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { GraphEffects } from './common/state/graph.effects';
 
 @NgModule({
-  declarations: [
-    EntryPointComponent,
-    OverviewComponent
+  declarations: [EntryPointComponent, OverviewComponent],
+  imports: [
+    CommonModule,
+    GraphRoutingModule,
+    MatDependenciesModule,
+    StoreModule.forFeature(fromGraph.graphFeatureKey, fromGraph.reducer),
+    EffectsModule.forFeature([GraphEffects]),
   ],
-  imports: [CommonModule, GraphRoutingModule, MatDependenciesModule, StoreModule.forFeature(fromGraph.graphFeatureKey, fromGraph.reducer), EffectsModule.forFeature([GraphEffects])],
 })
 export class GraphModule {}

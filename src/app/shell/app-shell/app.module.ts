@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,9 +14,23 @@ import { RxFormsModule } from 'src/app/shared/rx-forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SecurityModule } from '../security';
+import {
+  MsalBroadcastService,
+  MsalGuard,
+  MsalInterceptor,
+  MsalModule,
+  MsalService,
+  MSAL_GUARD_CONFIG,
+  MSAL_INSTANCE,
+  MSAL_INTERCEPTOR_CONFIG,
+} from '@azure/msal-angular';
+import {
+  MSALGuardConfigFactory,
+  MSALInstanceFactory,
+  MSALInterceptorConfigFactory,
+} from '../security/msal.config';
 
 export function initializeApp(appInitService: AppInitService): Function {
-  debugger;
   return () => appInitService.initializeAppAsync();
 }
 
@@ -34,7 +48,8 @@ export function initializeApp(appInitService: AppInitService): Function {
     HttpModule,
     HttpClientModule,
     RxFormsModule.forRoot(),
-    SecurityModule.forRoot()
+    SecurityModule,
+    MsalModule,
   ],
   providers: [
     {
@@ -42,7 +57,27 @@ export function initializeApp(appInitService: AppInitService): Function {
       useFactory: initializeApp,
       deps: [AppInitService],
       multi: true,
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true,
+    },
+    {
+      provide: MSAL_INSTANCE,
+      useFactory: MSALInstanceFactory,
+    },
+    {
+      provide: MSAL_GUARD_CONFIG,
+      useFactory: MSALGuardConfigFactory,
+    },
+    {
+      provide: MSAL_INTERCEPTOR_CONFIG,
+      useFactory: MSALInterceptorConfigFactory,
+    },
+    MsalService,
+    MsalGuard,
+    MsalBroadcastService,
   ],
   bootstrap: [AppComponent],
 })

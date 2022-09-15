@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EntryPointComponent } from './entry-point';
-import { OverviewComponent } from './overview';
+import { AccountInfoComponent } from './components/account-info';
+import { EntryPointComponent } from './components/entry-point';
 
 const routes: Routes = [
   {
@@ -9,13 +9,8 @@ const routes: Routes = [
     component: EntryPointComponent,
     children: [
       {
-        path: '',
-        redirectTo: 'overview',
-        pathMatch: 'full',
-      },
-      {
-        path: 'overview',
-        component: OverviewComponent,
+        path: 'account-info',
+        component: AccountInfoComponent,
       },
     ],
   },
@@ -25,4 +20,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class GraphRoutingModule {}
+export class SecurityRoutingModule {}
