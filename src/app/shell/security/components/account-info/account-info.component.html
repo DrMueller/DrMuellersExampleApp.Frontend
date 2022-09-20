@@ -16,12 +16,12 @@
           </li>
         </ul>
 
-        <p>Claims</p>
-        <!-- <ul>
-          <li *ngFor="let claim of accountInfo$.idTokenClaims | async">
-            {{ claim.name }}
+        <p>Claims from server</p>
+        <ul>
+          <li *ngFor="let claim of (claims$ | async)?.userClaims">
+            {{ claim.type }}: {{ claim.value }}
           </li>
-        </ul> -->
+        </ul>
       </mat-card-content>
     </mat-card>
   </div>

@@ -16,7 +16,12 @@ export const selectUserName = createSelector(
   (state) => state.account?.name
 );
 
-export const selectACcount = createSelector(
+export const selectAccount = createSelector(
   selectSecurityState,
   (state) => state.account
+);
+
+export const selectUserClaims = createSelector(
+  selectSecurityState,
+  (state) => state.userClaims
 );

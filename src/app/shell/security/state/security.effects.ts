@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { tap } from 'rxjs/operators';
+import { map, mergeMap, tap } from 'rxjs/operators';
 import * as SecurityActions from './security.actions';
 import { AuthenticationService } from '../services';
+import { UserService } from '../services/user.service';
 
 @Injectable()
 export class SecurityEffects {
@@ -16,6 +17,21 @@ export class SecurityEffects {
     { dispatch: false }
   );
 
+  public getUserClaims$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(SecurityActions.getUserClaims),
+      mergeMap(() =>
+        this.userService
+          .getClaims$()
+          .pipe(
+            map((claims) =>
+              SecurityActions.getUserClaimsSuccess({ data: claims })
+            )
+          )
+      )
+    );
+  });
+
   public logIn$ = createEffect(
     () => {
       return this.actions$.pipe(
@@ -28,6 +44,7 @@ export class SecurityEffects {
 
   constructor(
     private authService: AuthenticationService,
+    private userService: UserService,
     private actions$: Actions
   ) {}
 }
