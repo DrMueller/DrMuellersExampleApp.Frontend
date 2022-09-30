@@ -3,6 +3,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { JsonDateInterceptor } from './interceptors';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
 @NgModule({
   imports: [CommonModule],
@@ -10,6 +11,11 @@ import { JsonDateInterceptor } from './interceptors';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JsonDateInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
       multi: true,
     },
   ],

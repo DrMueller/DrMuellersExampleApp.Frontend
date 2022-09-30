@@ -12,6 +12,10 @@ export class BusyIndicatorService {
     return this._showBusyIndicator;
   }
 
+  public toggleBusyIndicator(show: boolean): void {
+    this._showBusyIndicator.next(show);
+  }
+
   public async withBusyIndicator<T>(callback: () => Promise<T>): Promise<T> {
     try {
       setTimeout(() => this._showBusyIndicator.next(true));
