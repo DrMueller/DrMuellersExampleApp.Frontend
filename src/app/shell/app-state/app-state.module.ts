@@ -8,6 +8,7 @@ import { environment } from 'src/app/environments/environment';
 
 import { IAppState, routerFeatureKey } from '.';
 import { AppStylingModule } from '../app-styling';
+import { MetaEffects } from './state/meta.effects';
 
 const reducers: ActionReducerMap<IAppState> = {
   router: routerReducer,
@@ -28,7 +29,7 @@ const reducers: ActionReducerMap<IAppState> = {
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot(),
+    EffectsModule.forRoot([MetaEffects]),
     AppStylingModule,
   ],
 })

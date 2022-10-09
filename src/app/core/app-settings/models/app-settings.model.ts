@@ -6,4 +6,5 @@ export interface AppSettings {
   AppVersion: string;
   CommitHash: string;
   AzureSettings: AzureSettings;
+  AppInsightsConnectionString: string;
 }
