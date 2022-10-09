@@ -11,14 +11,14 @@ export const selectUserIsAuthenticated = createSelector(
   (state) => state.account !== null
 );
 
-export const selectUserName = createSelector(
-  selectSecurityState,
-  (state) => state.account?.name
-);
-
 export const selectAccount = createSelector(
   selectSecurityState,
   (state) => state.account
+);
+
+export const selectUserName = createSelector(
+  selectAccount,
+  (acc) => acc?.username
 );
 
 export const selectUserClaims = createSelector(

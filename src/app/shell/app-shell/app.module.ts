@@ -29,6 +29,7 @@ import {
   MSALInstanceFactory,
   MSALInterceptorConfigFactory,
 } from '../security/msal.config';
+import { LoggingModule } from '../../core/logging/logging.module';
 
 export function initializeApp(appInitService: AppInitService): Function {
   return () => appInitService.initializeAppAsync();
@@ -50,6 +51,7 @@ export function initializeApp(appInitService: AppInitService): Function {
     RxFormsModule.forRoot(),
     SecurityModule,
     MsalModule,
+    LoggingModule,
   ],
   providers: [
     {

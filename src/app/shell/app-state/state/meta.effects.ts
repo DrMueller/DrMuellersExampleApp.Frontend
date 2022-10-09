@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect } from '@ngrx/effects';
 import { tap } from 'rxjs';
-import { LoggingService } from '../../../core/logging/logging.service';
+import { LoggingService } from '../../../core/logging/services/logging.service';
 
 @Injectable()
 export class MetaEffects {
