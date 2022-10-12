@@ -31,6 +31,13 @@ const routes: Routes = [
         (m) => m.SecurityModule
       ),
   },
+  {
+    path: 'individuals',
+    loadChildren: () =>
+      import('src/app/areas/individuals/individuals.module').then(
+        (m) => m.IndividualsModule
+      ),
+  },
 ];
 
 @NgModule({

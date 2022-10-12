@@ -38,7 +38,7 @@ export function initializeApp(appInitService: AppInitService): Function {
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    MatDependenciesModule,
+    MatDependenciesModule.forRoot(),
     AppNavigationModule,
     AppRoutingModule,
     AppStateModule,

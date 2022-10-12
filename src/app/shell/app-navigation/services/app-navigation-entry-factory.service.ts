@@ -22,6 +22,7 @@ export class AppNavigationEntryFactoryService {
       new AppNavigationEntry('Home', 'home'),
       new AppNavigationEntry('About me', 'about-me'),
       new AppNavigationEntry('Graph API fun', 'graph'),
+      new AppNavigationEntry('Individuals', 'individuals'),
     ];
   }
 }
