@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EditComponent } from './edit/edit.component';
 
-import { IndividualDetailsComponent } from './details/components/individual-details';
-import { IndividualDetailsResolver } from './details/resolvers';
-import { IndividualsComponent } from './entry-point/components/individuals';
-import { IndividualsOverviewComponent } from './overview/components/individuals-overview';
+import { EntryPointComponent } from './entry-point/entry-point.component';
+import { IndividualsOverviewComponent } from './overview';
 
 const routes: Routes = [
   {
     path: '',
-    component: IndividualsComponent,
+    component: EntryPointComponent,
     children: [
       {
         path: '', redirectTo: 'overview', pathMatch: 'full'
@@ -20,8 +19,7 @@ const routes: Routes = [
       },
       {
         path: ':individualId',
-        component: IndividualDetailsComponent,
-        resolve: { individual: IndividualDetailsResolver }
+        component: EditComponent
       }
     ]
   }

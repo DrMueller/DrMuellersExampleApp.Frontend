@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title>Actions</mat-card-title>
+  <mat-card-content>
+    <button mat-stroked-button [appCommand]="createIndividualCommand">Create</button>
+    <button mat-stroked-button [appCommand]="editIndividualCommand">Edit</button>
+    <button mat-stroked-button [appCommand]="deleteIndividualCommand" color="accent">Delete</button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>Individuals</mat-card-title>
+  <mat-card-content>
+    <app-mat-table (selectionChanged)="rowSelectionChanged($event)" idSelector="id" [columnDefinitions]="columnDefinitions" [data]="individuals"></app-mat-table>
+  </mat-card-content>
+</mat-card>
+<p>

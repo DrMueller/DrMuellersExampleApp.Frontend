@@ -2,7 +2,8 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
     "schematicCollections": [
-      "@angular-eslint/schematics"
+      "@angular-eslint/schematics",
+      "@ngrx/schematics"
     ],
     "analytics": "0206bc0a-e272-4023-a1e3-85ef83b4011c"
   },

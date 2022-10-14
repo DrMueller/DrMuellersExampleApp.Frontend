@@ -13,15 +13,19 @@ export class BusyIndicatorService {
   }
 
   public toggleBusyIndicator(show: boolean): void {
-    this._showBusyIndicator.next(show);
-  }
+    this.toggle(show);
+    }
 
   public async withBusyIndicator<T>(callback: () => Promise<T>): Promise<T> {
     try {
-      setTimeout(() => this._showBusyIndicator.next(true));
+      this.toggle(true);
       return await callback();
     } finally {
-      setTimeout(() => this._showBusyIndicator.next(false));
+      this.toggle(false);
     }
+  }
+
+  private toggle(show: boolean): void {
+    setTimeout(() => this._showBusyIndicator.next(show));
   }
 }

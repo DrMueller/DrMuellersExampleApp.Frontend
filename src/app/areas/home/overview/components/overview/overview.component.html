@@ -27,13 +27,13 @@
       Click to load from server
     </button>
 
-    <div *ngIf="welcomeLoaded">
+    <div *ngIf="appVersionLoded$ | async">
       <mat-card>
         <div class="overview-header">
           <mat-card-title>Welcome from ASP.Net Core</mat-card-title>
         </div>
         <mat-card-content>
-          {{ welcomeFromServer }}
+          {{ welcomeFromServer$ | async }}
         </mat-card-content>
       </mat-card>
     </div>

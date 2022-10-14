@@ -9,3 +9,8 @@ export const selectAppVersion = createSelector(
   selectHomeState,
   (state) => state.welcome.appVersion
 );
+
+export const selectAppVersionLoaded = createSelector(
+  selectHomeState,
+  (state) => !!state.welcome.appVersion
+);

@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from 'src/app/core/http';
 import { MatDependenciesModule } from 'src/app/mat-deps';
-import { BusyIndicationModule } from 'src/app/shared/busy-indication/busy-indication.module';
 import { AppInitService } from '../app-init/services';
 import { AppNavigationModule } from '../app-navigation/app-navigation.module';
 import { AppStateModule } from '../app-state/app-state.module';
@@ -30,6 +29,7 @@ import {
   MSALInterceptorConfigFactory,
 } from '../security/msal.config';
 import { LoggingModule } from '../../core/logging/logging.module';
+import { BusyIndicationModule } from '../../shared/mat-ext/busy-indication';
 
 export function initializeApp(appInitService: AppInitService): Function {
   return () => appInitService.initializeAppAsync();

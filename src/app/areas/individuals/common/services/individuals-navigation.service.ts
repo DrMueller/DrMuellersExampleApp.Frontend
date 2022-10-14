@@ -9,15 +9,15 @@ import { IndividualsServicesModule } from '../../individuals-services.module';
 export class IndividualsNavigationService {
   public constructor(private router: Router) { }
 
-  public navigateToCreateIndividual(): void {
+  public toCreate(): void {
     this.router.navigate(['individuals', '-1']);
   }
 
-  public navigateToEditIndividual(id: number): void {
+  public toEdit(id: number): void {
     this.router.navigate(['individuals', id]);
   }
 
-  public navigateToOverview(): void {
+  public ToOverview(): void {
     this.router.navigate(['individuals']);
   }
 }
