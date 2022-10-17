@@ -1,9 +1,11 @@
-import { Action, Func } from "../../../core/language-extensions/types";
-import { Command } from "./command";
+import { Action, Func } from '../../../core/language-extensions/types';
+import { Command } from './command';
 
 export class RelayCommand implements Command {
-  public constructor(private action: Action, private canExecuteCallback: Func<boolean> | null = null) {
-  }
+  public constructor(
+    private action: Action,
+    private canExecuteCallback: Func<boolean> | null = null
+  ) {}
 
   public get canExecute(): boolean {
     if (!this.canExecuteCallback) {

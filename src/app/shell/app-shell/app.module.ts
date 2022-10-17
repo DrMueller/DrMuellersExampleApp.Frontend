@@ -29,7 +29,7 @@ import {
   MSALInterceptorConfigFactory,
 } from '../security/msal.config';
 import { LoggingModule } from '../../core/logging/logging.module';
-import { BusyIndicationModule } from '../../shared/mat-ext/busy-indication';
+import { ProgressIndicationModule } from '../../shared/mat-ext/progress-indication/progress-indication.module';
 
 export function initializeApp(appInitService: AppInitService): Function {
   return () => appInitService.initializeAppAsync();
@@ -44,7 +44,7 @@ export function initializeApp(appInitService: AppInitService): Function {
     AppStateModule,
     BrowserModule,
     BrowserAnimationsModule,
-    BusyIndicationModule,
+    ProgressIndicationModule,
     ErrorHandlingModule.forRoot(),
     HttpModule,
     HttpClientModule,

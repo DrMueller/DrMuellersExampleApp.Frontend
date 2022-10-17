@@ -1,22 +1,20 @@
-import { Func } from "../../../core/language-extensions/types";
-import { RelayCommand } from "./relay-command";
+import { Func } from '../../../core/language-extensions/types';
+import { RelayCommand } from './relay-command';
 
 describe('RelayCommand', () => {
-
-  it('is created', (() => {
-    const expectedRelayCommand = new RelayCommand(() => { });
+  it('is created', () => {
+    const expectedRelayCommand = new RelayCommand(() => {});
     expect(expectedRelayCommand).toBeTruthy();
-  }));
+  });
 
   describe('creating a RelayCommand', () => {
     // Arrange
     let sut: RelayCommand;
 
     describe('without a canExecute callback', () => {
-
       // Act
       beforeEach(() => {
-        sut = new RelayCommand(() => { });
+        sut = new RelayCommand(() => {});
       });
 
       // Assert
@@ -36,7 +34,7 @@ describe('RelayCommand', () => {
       describe('with evaluating to false', () => {
         beforeEach(() => {
           canExecuteCallback = () => false;
-          sut = new RelayCommand(() => { }, canExecuteCallback);
+          sut = new RelayCommand(() => {}, canExecuteCallback);
         });
 
         it('evaluates to canExecute=false', () => {
@@ -47,7 +45,7 @@ describe('RelayCommand', () => {
       describe('with evaluating to true', () => {
         beforeEach(() => {
           canExecuteCallback = () => true;
-          sut = new RelayCommand(() => { }, canExecuteCallback);
+          sut = new RelayCommand(() => {}, canExecuteCallback);
         });
 
         it('evaluates to canExecute=true', () => {

@@ -1,13 +1,23 @@
-import { Directive, ElementRef, HostListener, Input, Renderer2, DoCheck } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  Input,
+  Renderer2,
+  DoCheck,
+} from '@angular/core';
 import { Command } from '../models/command';
 
 @Directive({
-  selector: '[appCommand]'
+  selector: '[appCommand]',
 })
 export class CommandDirective implements DoCheck {
   private _command!: Command;
 
-  public constructor(private renderer: Renderer2, private elementRef: ElementRef) { }
+  public constructor(
+    private renderer: Renderer2,
+    private elementRef: ElementRef
+  ) {}
 
   @HostListener('click') public onClick() {
     this._command.execute();

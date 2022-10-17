@@ -11,22 +11,24 @@ const routes: Routes = [
     component: EntryPointComponent,
     children: [
       {
-        path: '', redirectTo: 'overview', pathMatch: 'full'
+        path: '',
+        redirectTo: 'overview',
+        pathMatch: 'full',
       },
       {
         path: 'overview',
-        component: IndividualsOverviewComponent
+        component: IndividualsOverviewComponent,
       },
       {
         path: ':individualId',
-        component: EditComponent
-      }
-    ]
-  }
+        component: EditComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class IndividualsRoutingModule { }
+export class IndividualsRoutingModule {}

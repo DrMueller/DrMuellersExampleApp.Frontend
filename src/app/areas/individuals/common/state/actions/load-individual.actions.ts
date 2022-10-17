@@ -4,7 +4,6 @@ import { Individual } from '../../models';
 export const LoadIndividual = createAction(
   '[LoadIndividual] LoadIndividuals',
   props<{ id: number }>()
-
 );
 
 export const LoadIndividualSuccess = createAction(

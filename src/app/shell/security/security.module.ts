@@ -11,13 +11,12 @@ import { securityFeatureKey, reducer } from './state/security.reducer';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
 import { EntryPointComponent } from './components/entry-point/entry-point.component';
 import { SecurityRoutingModule } from './security-routing.module';
-
-import { BusyIndicationModule } from '../../shared/mat-ext/busy-indication';
+import { ProgressIndicationModule } from '../../shared/mat-ext/progress-indication/progress-indication.module';
 
 @NgModule({
   declarations: [AccountInfoComponent, EntryPointComponent],
   imports: [
-    BusyIndicationModule,
+    ProgressIndicationModule,
     CommonModule,
     RxFormsModule,
     MatDependenciesModule,

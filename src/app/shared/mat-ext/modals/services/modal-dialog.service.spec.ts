@@ -9,10 +9,12 @@ describe('ModalDialogService', () => {
     TestBed.configureTestingModule({
       providers: [
         {
-          provide: MatDialog, useValue: dialogSpy
-        }
-      ]
-    }));
+          provide: MatDialog,
+          useValue: dialogSpy,
+        },
+      ],
+    })
+  );
 
   it('should be created', () => {
     const service: ModalDialogService = TestBed.get(ModalDialogService);

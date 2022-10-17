@@ -10,9 +10,9 @@ describe('ActionEvent', () => {
 
   describe('Subscribing', () => {
     let actionWasCalled = false;
-    const mockAction: GenericAction<any> = ((_) => {
+    const mockAction: GenericAction<any> = (_) => {
       actionWasCalled = true;
-    });
+    };
 
     beforeEach(() => {
       sut.subscribe(mockAction);
@@ -28,9 +28,9 @@ describe('ActionEvent', () => {
 
   describe('Unsubscribing and firing the event does not fire the callback', () => {
     let actionWasCalled = false;
-    const mockAction: GenericAction<any> = ((_) => {
+    const mockAction: GenericAction<any> = (_) => {
       actionWasCalled = true;
-    });
+    };
 
     it('Does not fire the callback', () => {
       sut.subscribe(mockAction);

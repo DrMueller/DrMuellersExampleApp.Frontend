@@ -38,6 +38,13 @@ const routes: Routes = [
         (m) => m.IndividualsModule
       ),
   },
+  {
+    path: 'showcase',
+    loadChildren: () =>
+      import('src/app/areas/showcase/showcase.module').then(
+        (m) => m.ShowcaseModule
+      ),
+  },
 ];
 
 @NgModule({

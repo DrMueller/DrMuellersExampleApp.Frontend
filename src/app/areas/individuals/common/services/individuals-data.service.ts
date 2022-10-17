@@ -4,11 +4,10 @@ import { Individual } from '../models';
 import { IndividualsHttpService } from './individuals-http.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class IndividualsDataService {
-
-  constructor(private http: IndividualsHttpService) { }
+  constructor(private http: IndividualsHttpService) {}
 
   public load$(id: number): Observable<Individual> {
     return this.http.get$<Individual>(id);

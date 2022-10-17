@@ -5,7 +5,6 @@ import { CommandDirective } from './directives/command.directive';
 @NgModule({
   declarations: [CommandDirective],
   imports: [CommonModule],
-  exports: [CommandDirective]
+  exports: [CommandDirective],
 })
-export class CommandsModule {
-}
+export class CommandsModule {}

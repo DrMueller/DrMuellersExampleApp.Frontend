@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map, Observable } from 'rxjs';
-import { selectAppVersion, selectAppVersionLoaded } from '../../../common/state';
+import {
+  selectAppVersion,
+  selectAppVersionLoaded,
+} from '../../../common/state';
 import { loadWelcomes } from '../../../common/state/actions/welcome.actions';
 import { HomeState } from '../../../common/state/home.reducer';
 
@@ -23,7 +26,7 @@ export class OverviewComponent implements OnInit {
         )
       );
 
-      this.appVersionLoded$ = this.store.select(selectAppVersionLoaded);
+    this.appVersionLoded$ = this.store.select(selectAppVersionLoaded);
   }
 
   public appVersionLoded$!: Observable<boolean>;

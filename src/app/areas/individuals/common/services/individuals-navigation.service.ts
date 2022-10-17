@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 import { IndividualsServicesModule } from '../../individuals-services.module';
 
 @Injectable({
-  providedIn: IndividualsServicesModule
+  providedIn: IndividualsServicesModule,
 })
 export class IndividualsNavigationService {
-  public constructor(private router: Router) { }
+  public constructor(private router: Router) {}
 
   public toCreate(): void {
     this.router.navigate(['individuals', '-1']);

@@ -1,23 +1,24 @@
-import { Injectable, NgZone } from '@angular/core';
-import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
+import { Injectable } from '@angular/core';
 import { ComponentType } from '@angular/cdk/portal';
+import {
+  MatDialog,
+  MatDialogConfig,
+  MatDialogRef,
+} from '@angular/material/dialog';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ModalDialogService {
-  constructor(
-    private dialog: MatDialog,
-    private ngZone: NgZone
-  ) { }
+  constructor(private dialog: MatDialog) {}
 
-  public showModalDialog<T>(modalData: any, component: ComponentType<T>): MatDialogRef<T> {
-    const config = new MatDialogConfig();
+  public showModalDialog<T>(
+    modalData: any,
+    component: ComponentType<T>
+  ): MatDialogRef<T> {
+    const config = new MatDialogConfig<any>();
     config.data = modalData;
-    config.disableClose = true;
-
-    return this.ngZone.run(() => {
-      return this.dialog.open(component, config);
-    });
+    config.disableClose = false;
+    return this.dialog.open(component, config);
   }
 }

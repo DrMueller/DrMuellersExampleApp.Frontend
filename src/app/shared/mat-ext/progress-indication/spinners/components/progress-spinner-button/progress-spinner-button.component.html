@@ -1,0 +1,15 @@
+<button
+  class="progress-spinner-button"
+  mat-raised-button
+  (click)="internalClick()"
+>
+  <span
+    @fadeInOut
+    appProgressSpinner
+    [showProgressSpinner]="showProgressSpinner$"
+  ></span>
+  <ng-content
+    @fadeInOut
+    *ngIf="(showProgressSpinner$ | async) === false"
+  ></ng-content>
+</button>

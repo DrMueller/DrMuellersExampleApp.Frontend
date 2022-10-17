@@ -3,18 +3,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IndividualsServicesModule } from '../individuals-services.module';
 
 @Injectable({
-  providedIn: IndividualsServicesModule
+  providedIn: IndividualsServicesModule,
 })
 export class FormBuilderService {
-  public constructor(
-    private formBuilder: FormBuilder
-  ) { }
+  public constructor(private formBuilder: FormBuilder) {}
 
   public buildFormGroup(): FormGroup {
     return this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(5)]],
       lastName: ['', [Validators.required]],
-      birthdate: [new Date(1986, 12, 29)]
+      birthdate: [new Date(1986, 12, 29)],
     });
   }
 }

@@ -19,8 +19,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatListModule } from '@angular/material/list';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTabsModule } from '@angular/material/tabs';
+import {
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+  MatMomentDateModule,
+} from '@angular/material-moment-adapter';
 
 @NgModule({
   declarations: [],
@@ -45,7 +49,8 @@ import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule } from '@angular/m
     MatSidenavModule,
     MatListModule,
     MatPaginatorModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatTabsModule,
   ],
 })
 export class MatDependenciesModule {
@@ -54,9 +59,10 @@ export class MatDependenciesModule {
       ngModule: MatDependenciesModule,
       providers: [
         {
-          provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true }
-        }
-      ]
+          provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+          useValue: { useUtc: true },
+        },
+      ],
     };
   }
 }

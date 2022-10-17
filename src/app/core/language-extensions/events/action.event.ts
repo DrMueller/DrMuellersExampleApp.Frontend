@@ -18,6 +18,6 @@ export class ActionEvent<TEventArgs> implements ISubscribableEvent<TEventArgs> {
   }
 
   public onEvent(args: TEventArgs): void {
-    this._callbacks.forEach(cb => cb(args));
+    this._callbacks.forEach((cb) => cb(args));
   }
 }

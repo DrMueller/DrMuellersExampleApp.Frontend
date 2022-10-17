@@ -9,7 +9,7 @@ import { isDevMode } from '@angular/core';
 export class ErrorInformationFactoryService {
   public createFromError(error: Error): ErrorInformation {
     let errorMessage = error.message || 'Unknown';
-    if (isDevMode()){
+    if (isDevMode()) {
       errorMessage = errorMessage + ' ' + error.stack;
     }
 

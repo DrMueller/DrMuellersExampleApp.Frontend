@@ -36,9 +36,7 @@ describe('None', () => {
 
       sut.evaluate(someAction, noneAction);
 
-      it('Does not throw exception', () => {
-      });
+      it('Does not throw exception', () => {});
     });
   });
-
 });

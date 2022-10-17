@@ -6,7 +6,10 @@ import { CommandsModule } from '../../shared/commands/commands.module';
 import { TablesModule } from '../../shared/mat-ext/tables';
 import { RxFormsModule } from '../../shared/rx-forms';
 import { IndividualsEffects } from './common/state/individuals.effects';
-import { individualsFeatureKey, reducer } from './common/state/individuals.reducer';
+import {
+  individualsFeatureKey,
+  reducer,
+} from './common/state/individuals.reducer';
 import { EditComponent } from './edit/edit.component';
 
 import { EntryPointComponent } from './entry-point/entry-point.component';
@@ -28,9 +31,7 @@ import { IndividualsOverviewComponent } from './overview';
   declarations: [
     EditComponent,
     EntryPointComponent,
-    IndividualsOverviewComponent
-  ]
+    IndividualsOverviewComponent,
+  ],
 })
-
-export class IndividualsModule {
-}
+export class IndividualsModule {}

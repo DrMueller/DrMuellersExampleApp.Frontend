@@ -4,13 +4,15 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { SnackBarConfiguration } from '../models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SnackBarService {
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar) {}
 
-  public showSnackBar(text: string, config?: SnackBarConfiguration | undefined): void {
-
+  public showSnackBar(
+    text: string,
+    config?: SnackBarConfiguration | undefined
+  ): void {
     const checkedConfig = config || SnackBarConfiguration.createDefault();
 
     setTimeout(() => {

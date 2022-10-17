@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BusyIndicatorService } from 'src/app/core/loading-indication/services';
+import { LoadingIndicationService } from '../../shared/mat-ext/progress-indication/loading-indication';
 import { slideInAnimation } from './app.animation';
 
 @Component({
@@ -10,9 +10,9 @@ import { slideInAnimation } from './app.animation';
   animations: [slideInAnimation],
 })
 export class AppComponent {
-  public constructor(private busyIndicator: BusyIndicatorService) {}
+  public constructor(private loadIndicator: LoadingIndicationService) {}
 
-  public get showLoadingIndicator$(): Observable<boolean> {
-    return this.busyIndicator.showBusyIndicator$;
+  public get isLoading$(): Observable<boolean> {
+    return this.loadIndicator.isLoading$;
   }
 }

@@ -14,10 +14,9 @@ import { buildColumns } from './table.builder';
 @Component({
   selector: 'app-individuals-overview',
   templateUrl: './individuals-overview.component.html',
-  styleUrls: ['./individuals-overview.component.scss']
+  styleUrls: ['./individuals-overview.component.scss'],
 })
 export class IndividualsOverviewComponent implements OnInit {
-
   public editIndividualCommand!: RelayCommand;
   public columnDefinitions!: ColumnDefinitionsContainer;
   public createIndividualCommand!: RelayCommand;
@@ -31,24 +30,32 @@ export class IndividualsOverviewComponent implements OnInit {
     private navigationService: IndividualsNavigationService,
     private store: Store<State>,
     private snackBar: MatSnackBar
-     ) {
-  }
+  ) {}
 
   public ngOnInit(): void {
-    this.store.select(selectIndividualsOverview)
-    .subscribe(individuals => {
+    this.store.select(selectIndividualsOverview).subscribe((individuals) => {
       this.individuals = individuals;
     });
 
     this.columnDefinitions = buildColumns(this.tableFactory);
-    this.deleteIndividualCommand = new RelayCommand(() => this.deleteIndividualAsync(), () => this.areIndividualsSelected);
-    this.editIndividualCommand = new RelayCommand(() => this.editIndividual(), () => this.areIndividualsSelected);
-    this.createIndividualCommand = new RelayCommand(() => this.navigationService.toCreate());
+    this.deleteIndividualCommand = new RelayCommand(
+      () => this.deleteIndividualAsync(),
+      () => this.areIndividualsSelected
+    );
+    this.editIndividualCommand = new RelayCommand(
+      () => this.editIndividual(),
+      () => this.areIndividualsSelected
+    );
+    this.createIndividualCommand = new RelayCommand(() =>
+      this.navigationService.toCreate()
+    );
     this.store.dispatch(LoadIndividuals());
 
     setTimeout(() => {
-      this.snackBar.open('Loading Individuals..', undefined, <MatSnackBarConfig<any>>{
-        duration: 2500
+      this.snackBar.open('Loading Individuals..', undefined, <
+        MatSnackBarConfig<any>
+      >{
+        duration: 2500,
       });
     });
   }
@@ -57,8 +64,7 @@ export class IndividualsOverviewComponent implements OnInit {
     this.selectedIndividuals = selectedItems;
   }
 
-  private async deleteIndividualAsync(): Promise<void> {
-  }
+  private async deleteIndividualAsync(): Promise<void> {}
 
   private editIndividual(): void {
     const selectedIndividualId = this.selectedIndividuals[0].id;
