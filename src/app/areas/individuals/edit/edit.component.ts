@@ -35,6 +35,7 @@ export class EditComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 
   constructor(

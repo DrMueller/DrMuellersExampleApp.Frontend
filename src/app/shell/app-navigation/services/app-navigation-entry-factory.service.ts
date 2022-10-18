@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 
 import { AppNavigationEntry } from '../models';
 
+import { routes } from '../../app-shell/app-routing.module';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -18,12 +20,8 @@ export class AppNavigationEntryFactoryService {
       return;
     }
 
-    this._cache = [
-      new AppNavigationEntry('Home', 'home'),
-      new AppNavigationEntry('About me', 'about-me'),
-      new AppNavigationEntry('Graph API fun', 'graph'),
-      new AppNavigationEntry('Individuals', 'individuals'),
-      new AppNavigationEntry('Showcase', 'showcase'),
-    ];
+    this._cache = routes.map(
+      (route) => new AppNavigationEntry(<string>route.title, route.path!)
+    );
   }
 }

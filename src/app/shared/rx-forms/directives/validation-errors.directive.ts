@@ -29,6 +29,12 @@ export class ValidationErrorsDirective {
       const validationErrors = this.validator.validateFormControl(
         this._formControlToValidate
       );
+
+      // This case happens, if f.e. the pre-loaded data is invalid
+      if (validationErrors.length == 0) {
+        return;
+      }
+
       const firstError = validationErrors[0]; // Material Best practices: Only show one error at a time
       const label = <HTMLElement>this.renderer.createElement('label');
       label.innerText = firstError.errorMessage;
