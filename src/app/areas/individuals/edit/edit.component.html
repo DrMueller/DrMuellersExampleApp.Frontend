@@ -18,17 +18,14 @@
         <div class="form-field">
           <mat-form-field>
             <input
-              uitesting="firstName"
               matInput
               type="text"
               class="form-control"
               placeholder="Enter first name"
               formControlName="firstName"
             />
+            <mat-error appValidation></mat-error>
           </mat-form-field>
-          <mat-error
-            [appValidationErrors]="formGroup.controls['firstName']"
-          ></mat-error>
         </div>
 
         <div class="form-field">
@@ -40,10 +37,8 @@
               placeholder="Enter last name"
               formControlName="lastName"
             />
+            <mat-error appValidation></mat-error>
           </mat-form-field>
-          <mat-error
-            [appValidationErrors]="formGroup.controls['lastName']"
-          ></mat-error>
         </div>
 
         <div class="form-field">
@@ -61,10 +56,8 @@
               [for]="birthDatePicker"
             ></mat-datepicker-toggle>
             <mat-datepicker #birthDatePicker></mat-datepicker>
+            <mat-error appValidation></mat-error>
           </mat-form-field>
-          <mat-error
-            [appValidationErrors]="formGroup.controls['birthdate']"
-          ></mat-error>
         </div>
       </div>
     </form>

@@ -30,7 +30,6 @@ export class IndividualsEffects {
     private dataService: IndividualsDataService
   ) {}
 
-  // TODO you shouldnt use store here?
   setCurrentIndividuaId$ = createEffect(() =>
     this.actions$.pipe(
       ofType(routerNavigatedAction),

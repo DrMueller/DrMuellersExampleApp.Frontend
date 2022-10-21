@@ -2,15 +2,15 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { ValidationErrorsDirective } from './directives/validation-errors.directive';
+import { ValidationComponent } from './directives/validation.component';
 import { VALIDATION_ERROR_MAPPER_TOKEN } from './services/validation/constants';
 import { MaxLengthErrorMapperService } from './services/validation/implementation/max-length-error-mapper.service';
 import { MinLengthErrorMapperService } from './services/validation/implementation/min-length-error-mapper.service';
 import { RequiredErrorMapperService } from './services/validation/implementation/required-error-mapper.service';
 
 @NgModule({
-  declarations: [ValidationErrorsDirective],
-  exports: [ReactiveFormsModule, ValidationErrorsDirective],
+  declarations: [ValidationComponent],
+  exports: [ReactiveFormsModule, ValidationComponent],
   imports: [CommonModule, ReactiveFormsModule],
 })
 export class RxFormsModule {
