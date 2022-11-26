@@ -4,7 +4,7 @@ import { AppSettingsProvisioningService } from './app/core/app-settings/services
 // import { AppSettingsProvisioningService } from './app/core/app-settings/services';
 
 import { environment } from './app/environments/environment';
-import { AppModule } from './app/shell/app-shell/app.module'; // Doesn't work with barrels!
+import { AppModule } from './app/core/shell/app-shell/app.module'; // Doesn't work with barrels!
 
 if (environment.production) {
   enableProdMode();

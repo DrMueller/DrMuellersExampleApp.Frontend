@@ -9,7 +9,7 @@ import {
   LogLevel,
   PublicClientApplication,
 } from '@azure/msal-browser';
-import { AppSettingsProvisioningService } from '../../core/app-settings/services';
+import { AppSettingsProvisioningService } from '../../app-settings/services';
 
 const isIE =
   window.navigator.userAgent.indexOf('MSIE ') > -1 ||

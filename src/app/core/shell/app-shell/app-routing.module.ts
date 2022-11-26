@@ -30,7 +30,7 @@ export const routes: Routes = [
   {
     path: 'security',
     loadChildren: () =>
-      import('src/app/shell/security/security.module').then(
+      import('src/app/core/shell/security/security.module').then(
         (m) => m.SecurityModule
       ),
     title: 'Security',

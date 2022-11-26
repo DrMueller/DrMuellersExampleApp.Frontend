@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MatDependenciesModule } from 'src/app/mat-deps';
+import { MatDependenciesModule } from 'src/app/shared/mat-deps';
 import { SecurityModule } from '../security';
 
 import { AppNavigationComponent } from './components/app-navigation';

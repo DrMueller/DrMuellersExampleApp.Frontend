@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { tap } from 'rxjs/operators';
 import { AppInsightsService } from '../services/app-insights.service';
-import { userChanged } from '../../../shell/security/state';
+import { userChanged } from '../../shell/security/state';
 
 @Injectable()
 export class LoggingEffects {

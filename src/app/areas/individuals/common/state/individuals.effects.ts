@@ -3,7 +3,7 @@ import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { routerNavigatedAction } from '@ngrx/router-store';
 import { Store } from '@ngrx/store';
 import { filter, map, mergeMap } from 'rxjs';
-import { IAppState, selectRouteParam } from '../../../../shell/app-state';
+import { IAppState, selectRouteParam } from '../../../../core/shell/app-state';
 import { IndividualsDataService } from '../services/individuals-data.service';
 import {
   LoadIndividual,

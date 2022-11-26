@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { AppSettingsProvisioningService } from '../../../../core/app-settings/services';
+import { AppSettingsProvisioningService } from '../../../../app-settings/services';
 
 import { AppNavigationEntry } from '../../models';
 import { AppNavigationEntryFactoryService } from '../../services';

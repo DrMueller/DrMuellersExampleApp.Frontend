@@ -6,7 +6,7 @@ import {
   ProgressSpinnerButtonComponent,
   ProgressSpinnerDirective,
 } from './spinners';
-import { MatDependenciesModule } from '../../../mat-deps';
+import { MatDependenciesModule } from '../../mat-deps';
 
 @NgModule({
   declarations: [

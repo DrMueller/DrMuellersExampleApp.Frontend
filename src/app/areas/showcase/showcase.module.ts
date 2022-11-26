@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ShowcaseRoutingModule } from './showcase-routing.module';
 import { ShowProgressComponent } from './show-progress/show-progress.component';
 import { OverviewComponent } from './overview/overview.component';
-import { MatDependenciesModule } from '../../mat-deps';
+import { MatDependenciesModule } from '../../shared/mat-deps';
 import { EntryPointComponent } from './entry-point/entry-point.component';
 import { ProgressIndicationModule } from '../../shared/mat-ext/progress-indication/progress-indication.module';
 import { CommandsModule } from '../../shared/commands/commands.module';

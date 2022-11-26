@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Command } from '../../../shared/commands/models/command';
 import { RelayCommand } from '../../../shared/commands/models/relay-command';
-import { ModalDialogService } from '../../../shared/mat-ext/modals';
+import { ModalDialogService } from '../../../core/mat-ext/modals';
 import { ModalCompComponent } from '../modal-comp/modal-comp.component';
 
 @Component({

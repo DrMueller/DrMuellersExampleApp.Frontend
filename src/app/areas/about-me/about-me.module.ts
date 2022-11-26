@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { OverviewComponent } from './overview/overview.component';
 import { EntryPointComponent } from './entry-point/entry-point.component';
 import { AboutMeRoutingModule } from './about-me-routing.module';
-import { MatDependenciesModule } from 'src/app/mat-deps';
+import { MatDependenciesModule } from 'src/app/shared/mat-deps';
 
 @NgModule({
   declarations: [OverviewComponent, EntryPointComponent],

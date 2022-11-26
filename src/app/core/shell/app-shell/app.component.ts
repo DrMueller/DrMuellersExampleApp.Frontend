@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoadingIndicationService } from '../../shared/mat-ext/progress-indication/loading-indication';
+import { LoadingIndicationService } from '../../mat-ext/loading-indication';
 import { slideInAnimation } from './app.animation';
 
 @Component({

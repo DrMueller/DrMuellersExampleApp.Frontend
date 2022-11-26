@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GraphRoutingModule } from './graph-routing.module';
-import { MatDependenciesModule } from 'src/app/mat-deps';
+import { MatDependenciesModule } from 'src/app/shared/mat-deps';
 import { EntryPointComponent } from './entry-point/entry-point.component';
 import { OverviewComponent } from './overview/overview.component';
 import { StoreModule } from '@ngrx/store';

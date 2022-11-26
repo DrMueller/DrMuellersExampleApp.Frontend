@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { allThemes, AppTheme } from 'src/app/shell/app-styling/models';
-import { getAppTheme, setAppTheme } from 'src/app/shell/app-styling/state';
+import { allThemes, AppTheme } from 'src/app/core/shell/app-styling/models';
+import { getAppTheme, setAppTheme } from 'src/app/core/shell/app-styling/state';
 import {
   selectUserIsAuthenticated,
   selectUserName,
   logIn,
   logOut,
-} from 'src/app/shell/security/state';
+} from 'src/app/core/shell/security/state';
 
 @Component({
   selector: 'app-user-menu',

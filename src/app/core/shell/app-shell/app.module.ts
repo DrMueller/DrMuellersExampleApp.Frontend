@@ -3,7 +3,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from 'src/app/core/http';
-import { MatDependenciesModule } from 'src/app/mat-deps';
+import { MatDependenciesModule } from 'src/app/shared/mat-deps';
 import { AppInitService } from '../app-init/services';
 import { AppNavigationModule } from '../app-navigation/app-navigation.module';
 import { AppStateModule } from '../app-state/app-state.module';
@@ -28,8 +28,8 @@ import {
   MSALInstanceFactory,
   MSALInterceptorConfigFactory,
 } from '../security/msal.config';
-import { LoggingModule } from '../../core/logging/logging.module';
-import { ProgressIndicationModule } from '../../shared/mat-ext/progress-indication/progress-indication.module';
+import { LoggingModule } from '../../logging/logging.module';
+import { ProgressIndicationModule } from '../../../shared/mat-ext/progress-indication/progress-indication.module';
 
 export function initializeApp(appInitService: AppInitService): Function {
   return () => appInitService.initializeAppAsync();

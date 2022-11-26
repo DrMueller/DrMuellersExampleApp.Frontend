@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
-import { AppSettingsProvisioningService } from '../../../core/app-settings/services';
+import { AppSettingsProvisioningService } from '../../../app-settings/services';
 
 @Injectable({
   providedIn: 'root',
