@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ModalDialogService } from './modal-dialog.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 describe('ModalDialogService', () => {
   const dialogSpy: any = {};

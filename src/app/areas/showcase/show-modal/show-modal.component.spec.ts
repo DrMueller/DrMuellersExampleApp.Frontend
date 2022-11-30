@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ModalDialogService } from 'src/app/core/mat-ext/modals';
 
 import { ShowModalComponent } from './show-modal.component';
 
@@ -9,6 +10,12 @@ describe('ShowModalComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ShowModalComponent],
+      providers: [
+        {
+          provide: ModalDialogService,
+          useValue: {},
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ShowModalComponent);

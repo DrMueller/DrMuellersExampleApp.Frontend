@@ -31,6 +31,22 @@ steps:
       customCommand: "run ci:format-test"
 
   - task: Npm@1
+    displayName: 'Run Unit Tests'
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: 'run ci:unit-test'
+
+  - task: PublishTestResults@2
+    displayName: 'Publish Test Results'
+    inputs:
+      testResultsFiles: '**/testresults/*-tests.xml'
+
+      failTaskOnFailedTests: true
+
+    condition: succeededOrFailed()
+
+  - task: Npm@1
     displayName: "Build"
     inputs:
       command: custom
