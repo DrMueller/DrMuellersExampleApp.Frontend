@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
@@ -28,6 +29,7 @@ describe('EditComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [EditComponent],
+      schemas: [NO_ERRORS_SCHEMA],
       providers: [
         {
           provide: IndividualsNavigationService,

@@ -1,6 +1,6 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ModalDialogService } from 'src/app/core/mat-ext/modals';
-
+import { ModalDialogService } from '../../../core/mat-ext/modals';
 import { ShowModalComponent } from './show-modal.component';
 
 describe('ShowModalComponent', () => {
@@ -10,6 +10,7 @@ describe('ShowModalComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ShowModalComponent],
+      schemas: [NO_ERRORS_SCHEMA],
       providers: [
         {
           provide: ModalDialogService,
