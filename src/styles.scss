@@ -1,7 +1,19 @@
-@use '~@angular/material' as mat;
-@import '~@angular/material/theming';
 
-// **************** Styling definition start
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+
 $md-primary: (
     50 : #e0e2f6,
     100 : #b3b6e8,
@@ -68,12 +80,13 @@ $md-accent: (
     )
 );
 
-$primary-palette: mat-palette($md-primary);
-$accent-palette:  mat-palette($md-accent);
-$warn-palette: mat-palette($mat-red);
 
-$lightTheme: mat-light-theme($primary-palette, $accent-palette, $warn-palette);
-$darkTheme: mat-dark-theme($primary-palette, $accent-palette, $warn-palette);
+$primary-palette: mat.define-palette($md-primary);
+$accent-palette: mat.define-palette($md-accent);
+$warn-palette: mat.define-palette(mat.$red-palette);
+
+$lightTheme: mat.define-light-theme($primary-palette, $accent-palette, $warn-palette);
+$darkTheme: mat.define-dark-theme($primary-palette, $accent-palette, $warn-palette);
 
 @include mat.core();
 
@@ -86,12 +99,11 @@ $darkTheme: mat-dark-theme($primary-palette, $accent-palette, $warn-palette);
   @include mat.all-component-themes($darkTheme);
   @include mat.strong-focus-indicators-theme($darkTheme);
 }
-// **************** Styling definition End
 
 // **************** App style variables start
-$primary: mat-color($primary-palette);
-$accent: mat-color($accent-palette);
-$warn: mat-color($warn-palette);
+$primary: mat.get-color-from-palette($primary-palette);
+$accent: mat.get-color-from-palette($accent-palette);
+$warn: mat.get-color-from-palette($warn-palette);
 $disabled: rgba(0,0,0,.26);
 // **************** App style variables end
 
