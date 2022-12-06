@@ -16,13 +16,12 @@ const isIE =
   window.navigator.userAgent.indexOf('Trident/') > -1;
 
 export function MSALInstanceFactory(): IPublicClientApplication {
-  const result = new PublicClientApplication(<Configuration>{
+  return new PublicClientApplication(<Configuration>{
     auth: {
       clientId: AppSettingsProvisioningService.settings.AzureSettings.ClientId,
       authority:
         AppSettingsProvisioningService.settings.AzureSettings.Authority,
-      redirectUri:
-        AppSettingsProvisioningService.settings.AzureSettings.RedirectUri,
+      redirectUri: location.href,
     },
     cache: {
       cacheLocation: 'localStorage',
@@ -38,8 +37,6 @@ export function MSALInstanceFactory(): IPublicClientApplication {
       },
     },
   });
-
-  return result;
 }
 
 export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
