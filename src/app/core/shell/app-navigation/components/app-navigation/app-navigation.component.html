@@ -30,9 +30,9 @@
         <mat-list-item>
           <small>Version: {{ versionDescription }}</small>
         </mat-list-item>
-        <mat-list-item>
-          <small> Last commit: <a href="{{ commitLink }}">click me</a> </small>
-        </mat-list-item>
+        <a mat-list-item href="{{ commitLink }}">
+          <small>Last commit link</small>
+       </a>
       </mat-list>
     </div>
   </mat-sidenav>
