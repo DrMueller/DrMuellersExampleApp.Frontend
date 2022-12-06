@@ -21,7 +21,7 @@ stages:
     displayName: "Production"
     jobs:
       - deployment: "DeploymentProduction"
-        environment: "DrMuellersExampleApp-WebApp-Backend"
+        environment: "DrMuellersExampleApp-WebApp-Frontend"
         displayName: "Deployment Production"
         strategy:
           runOnce:
