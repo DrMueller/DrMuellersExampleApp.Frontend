@@ -21,9 +21,8 @@ export class AppNavigationEntryFactoryService {
     }
 
     this._cache = routes
-    .filter(f => f.path)
-    .map(
-      (route) => new AppNavigationEntry(<string>route.title, route.path!)
-    );
+      .filter((f) => f.path)
+      .filter((f) => !f.data || (<any>f.data).dontShowInNavigation !== true)
+      .map((route) => new AppNavigationEntry(<string>route.title, route.path!));
   }
 }

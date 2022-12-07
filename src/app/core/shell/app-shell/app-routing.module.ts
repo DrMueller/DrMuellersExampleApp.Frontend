@@ -34,6 +34,9 @@ export const routes: Routes = [
         (m) => m.SecurityModule
       ),
     title: 'Security',
+    data: {
+      dontShowInNavigation: true,
+    },
   },
   {
     path: 'individuals',
