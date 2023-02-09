@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GraphRoutingModule } from './graph-routing.module';
 import { MatDependenciesModule } from 'src/app/shared/mat-deps';
@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { GraphEffects } from './common/state/graph.effects';
 
 @NgModule({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [EntryPointComponent, OverviewComponent],
   imports: [
     CommonModule,

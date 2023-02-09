@@ -32,6 +32,7 @@
     "@azure/msal-browser": "^2.32.0",
     "@microsoft/applicationinsights-angularplugin-js": "^3.0.0",
     "@microsoft/applicationinsights-web": "^2.8.8",
+    "@microsoft/mgt": "^2.9.0",
     "@microsoft/microsoft-graph-client": "^3.0.2",
     "@microsoft/microsoft-graph-types": "^2.24.0",
     "@ngrx/effects": "^15.0.0",
