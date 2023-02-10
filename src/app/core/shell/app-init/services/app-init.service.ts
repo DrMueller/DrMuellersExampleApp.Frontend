@@ -31,7 +31,9 @@ export class AppInitService {
 
   private initializeGraphToolkit(): void {
     Providers.globalProvider = new Msal2Provider({
-      clientId: AppSettingsProvisioningService.settings.AzureSettings.ClientId
+      clientId: AppSettingsProvisioningService.settings.AzureSettings.ClientId,
+      authority: AppSettingsProvisioningService.settings.AzureSettings.Authority,
+      redirectUri: window.location.origin,
     });
   }
 

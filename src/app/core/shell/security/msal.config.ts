@@ -21,7 +21,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
       clientId: AppSettingsProvisioningService.settings.AzureSettings.ClientId,
       authority:
         AppSettingsProvisioningService.settings.AzureSettings.Authority,
-      redirectUri: location.href,
+      redirectUri: window.location.origin,
     },
     cache: {
       cacheLocation: 'localStorage',
